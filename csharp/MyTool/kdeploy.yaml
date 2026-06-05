@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: first-web-deploy
+  labels:
+    app: first-web-deploy-lbl
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web-app
+  template:
+    metadata:
+      labels:
+        app: web-app
+    spec:
+      containers:
+        - name: web-app-container
+          image: swatimahajan90/myappimg
+          ports:
+          - containerPort: 8080
+		  
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: first-web-deploy-service
+  labels:
+    app: web-app
+spec:
+  selector:
+    app: first-web-deploy-lbl
+  
+  type:Nodeport
+  ports:
+  - nodeport: 31028
+    port: 8080
+	targetPort: 8080
