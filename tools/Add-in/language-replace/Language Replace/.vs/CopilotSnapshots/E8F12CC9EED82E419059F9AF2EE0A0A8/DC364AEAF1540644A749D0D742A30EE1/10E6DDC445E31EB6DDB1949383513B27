@@ -1,0 +1,190 @@
+﻿<Window x:Class="Language_Replace.Main"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Language Replace Tool"
+        WindowStartupLocation="CenterScreen"
+        Width="600"
+        Height="700"
+        ScrollViewer.VerticalScrollBarVisibility="Auto"
+        ScrollViewer.HorizontalScrollBarVisibility="Auto" 
+        Icon="/version_2025;component/DAR_LOGO_BLACK.RGB.png">
+
+    <Grid Background="#F5F5F5">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="20">
+                
+                <!-- Title -->
+                <TextBlock Text="Language Replace Plugin" 
+                           FontSize="24" 
+                           FontWeight="Bold" 
+                           Foreground="#333333"
+                           Margin="0,0,0,15"/>
+
+                <!-- Excel File Selection Section -->
+                <Border BorderBrush="#CCCCCC" BorderThickness="1" CornerRadius="5" Padding="15" Margin="0,0,0,15">
+                    <StackPanel>
+                        <TextBlock Text="1. Load Translation File" 
+                                   FontSize="14" 
+                                   FontWeight="Bold" 
+                                   Foreground="#333333"
+                                   Margin="0,0,0,10"/>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                            <TextBox x:Name="FilePathTextBox" 
+                                     Text="{Binding ExcelFilePath, UpdateSourceTrigger=PropertyChanged}"
+                                     Height="35"
+                                     Padding="10,8"
+                                     VerticalAlignment="Center"
+                                     IsReadOnly="True"
+                                     Background="White"
+                                     Foreground="#666666"
+                                     Margin="0,0,10,0"/>
+                            <Button x:Name="BrowseButton" 
+                                    Content="Browse..." 
+                                    Click="BrowseButton_Click"
+                                    Width="100"
+                                    Height="35"
+                                    Background="#4CAF50"
+                                    Foreground="White"
+                                    FontWeight="Bold"
+                                    Cursor="Hand"/>
+                        </StackPanel>
+
+                        <TextBlock Text="Supported formats: CSV or Excel (.xlsx)" 
+                                   FontSize="11" 
+                                   Foreground="#999999"
+                                   FontStyle="Italic"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Replacement Option Selection -->
+                <Border BorderBrush="#CCCCCC" BorderThickness="1" CornerRadius="5" Padding="15" Margin="0,0,0,15">
+                    <StackPanel>
+                        <TextBlock Text="2. Select Replacement Option" 
+                                   FontSize="14" 
+                                   FontWeight="Bold" 
+                                   Foreground="#333333"
+                                   Margin="0,0,0,12"/>
+
+                        <RadioButton x:Name="Option1Radio" 
+                                     GroupName="ReplacementOptions"
+                                     Margin="0,0,0,15">
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="Option 1: Replace to 2nd Language" 
+                                           FontWeight="Bold" 
+                                           Foreground="#333333"/>
+                                <TextBlock Text="Replace all occurrences of original text with translated text" 
+                                           FontSize="11" 
+                                           Foreground="#666666"
+                                           Margin="0,3,0,0"/>
+                            </StackPanel>
+                        </RadioButton>
+
+                        <RadioButton x:Name="Option2Radio" 
+                                     GroupName="ReplacementOptions">
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="Option 2: Replace Exact Match Only" 
+                                           FontWeight="Bold" 
+                                           Foreground="#333333"/>
+                                <TextBlock Text="Only replace if parameter value exactly matches original text" 
+                                           FontSize="11" 
+                                           Foreground="#666666"
+                                           Margin="0,3,0,0"/>
+                            </StackPanel>
+                        </RadioButton>
+                    </StackPanel>
+                </Border>
+
+                <!-- Additional Options -->
+                <Border BorderBrush="#CCCCCC" BorderThickness="1" CornerRadius="5" Padding="15" Margin="0,0,0,15">
+                    <StackPanel>
+                        <TextBlock Text="3. Additional Options" 
+                                   FontSize="14" 
+                                   FontWeight="Bold" 
+                                   Foreground="#333333"
+                                   Margin="0,0,0,12"/>
+
+                        <CheckBox x:Name="CaseSensitiveCheckBox" 
+                                  IsChecked="{Binding IsCaseSensitive, UpdateSourceTrigger=PropertyChanged}">
+                            <TextBlock Text="Case Sensitive Matching" Foreground="#333333"/>
+                        </CheckBox>
+                    </StackPanel>
+                </Border>
+
+                <!-- Loaded Translations Preview -->
+                <Border BorderBrush="#CCCCCC" BorderThickness="1" CornerRadius="5" Padding="15" Margin="0,0,0,15">
+                    <StackPanel>
+                        <TextBlock Text="4. Translation Preview" 
+                                   FontSize="14" 
+                                   FontWeight="Bold" 
+                                   Foreground="#333333"
+                                   Margin="0,0,0,10"/>
+
+                        <TextBlock Text="{Binding Translations.Count, StringFormat='Loaded: {0} translations'}" 
+                                   FontSize="12" 
+                                   Foreground="#666666"
+                                   Margin="0,0,0,10"/>
+
+                        <DataGrid x:Name="TranslationGrid"
+                                  ItemsSource="{Binding Translations}"
+                                  Height="200"
+                                  AutoGenerateColumns="False"
+                                  CanUserAddRows="False"
+                                  CanUserDeleteRows="False"
+                                  Background="White">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Original Text" 
+                                                    Binding="{Binding OriginalText}" 
+                                                    Width="*"
+                                                    IsReadOnly="True"/>
+                                <DataGridTextColumn Header="Translated Text" 
+                                                    Binding="{Binding TranslatedText}" 
+                                                    Width="*"
+                                                    IsReadOnly="True"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+                </Border>
+
+                <!-- Action Buttons -->
+                <Grid Margin="0,20,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="100"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <Button x:Name="ApplyButton" 
+                            Content="Apply Replacements" 
+                            Click="ApplyButton_Click"
+                            Padding="20,12"
+                            Background="#2196F3"
+                            Foreground="White"
+                            FontWeight="Bold"
+                            FontSize="12"
+                            Cursor="Hand"
+                            Margin="0,0,10,0"
+                            Grid.Column="0"/>
+                    <Button x:Name="CloseButton" 
+                            Content="Close" 
+                            Click="CloseButton_Click"
+                            Padding="20,12"
+                            Background="#757575"
+                            Foreground="White"
+                            FontWeight="Bold"
+                            FontSize="12"
+                            Cursor="Hand"
+                            Grid.Column="1"/>
+                </Grid>
+
+                <!-- Status Message -->
+                <TextBlock x:Name="StatusTextBlock" 
+                           Text=""
+                           FontSize="11" 
+                           Foreground="#F44336"
+                           TextWrapping="Wrap"
+                           Margin="0,10,0,0"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+
+</Window>

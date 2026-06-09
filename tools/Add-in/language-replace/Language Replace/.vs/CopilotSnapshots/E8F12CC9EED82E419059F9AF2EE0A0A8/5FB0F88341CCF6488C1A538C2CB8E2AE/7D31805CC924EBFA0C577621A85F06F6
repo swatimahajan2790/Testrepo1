@@ -1,0 +1,191 @@
+﻿# Language Replace Plugin - Documentation
+
+## Overview
+This Revit plugin allows you to replace text in element parameters by linking translations from an Excel file. It supports two replacement modes to handle different use cases.
+
+## Features
+
+### 1. **Translation File Support**
+- **CSV Format**: Comma-separated values with two columns
+  - Column A: Original Text
+  - Column B: Translated Text
+- **Excel Format**: .xlsx files (.xls also supported with additional package)
+- First row can be a header (will be skipped if it starts with non-empty values)
+
+### 2. **Two Replacement Options**
+
+#### **Option 1: Replace to 2nd Language**
+- Replaces **all occurrences** of the original text with the translated text
+- Use this when you want to find and replace text anywhere within parameters
+- Example: If original text is "Door" and translated is "Puerta", all instances of "Door" will become "Puerta"
+
+#### **Option 2: Replace Exact Match Only**
+- Only replaces if the entire parameter value **exactly matches** the original text
+- Use this when you want whole parameter replacements without partial matches
+- Example: If a parameter contains exactly "Door", it will be replaced with "Puerta", but "Door Frame" will not be changed
+
+### 3. **Additional Options**
+- **Case Sensitive Matching**: Toggle whether replacements should consider case sensitivity
+  - Enabled: "Door" ≠ "door"
+  - Disabled: "Door" = "door" (default)
+
+## How to Use
+
+### Step 1: Prepare Translation File
+Create a CSV or Excel file with your translations:
+
+**Example CSV format:**
+```csv
+Original,Translated
+Door,Puerta
+Window,Ventana
+Wall,Muro
+Room,Habitación
+```
+
+### Step 2: Launch the Plugin
+Open your Revit project and run the Language Replace command.
+
+### Step 3: Load Translation File
+1. Click **"Browse..."** button
+2. Select your translation CSV or Excel file
+3. The plugin will load all translations and display them in the preview grid
+4. Verify the loaded translations are correct
+
+### Step 4: Select Replacement Option
+Choose one of the two options based on your needs:
+- **Option 1**: For finding and replacing text anywhere in parameters
+- **Option 2**: For exact parameter value matching
+
+### Step 5: Configure Additional Options
+- Enable/Disable **Case Sensitive Matching** if needed
+
+### Step 6: Apply Replacements
+Click **"Apply Replacements"** to process all elements in your project.
+
+The plugin will:
+1. Scan all elements in the document
+2. Check all string parameters
+3. Apply replacements based on your selected option
+4. Show a summary of modifications made
+
+## File Format Guidelines
+
+### CSV File Format
+```
+Original Text,Translated Text
+Text1,Replacement1
+Text2,Replacement2
+...
+```
+
+**Notes:**
+- Use comma as delimiter
+- Quotes are optional but recommended for cells with commas
+- First row with headers is optional (will be detected and skipped)
+- Empty rows will be ignored
+
+### Excel File Format
+1. Create an .xlsx file
+2. Place original text in Column A
+3. Place translated text in Column B
+4. Optional header in Row 1
+5. Data starts from Row 2
+
+## Technical Details
+
+### Architecture
+
+1. **Data.cs**: Data model and configuration
+   - Stores translations as ObservableCollection
+   - Manages replacement options and settings
+   - Implements INotifyPropertyChanged for UI binding
+
+2. **ExcelHelper.cs**: File reading utility
+   - Reads CSV files natively
+   - Excel support (requires ClosedXML package for .xlsx)
+   - Validates file format
+
+3. **ApplyHandler.cs**: Core replacement logic
+   - Implements IExternalEventHandler for thread-safe execution
+   - Processes all elements and parameters
+   - Handles case-sensitive/insensitive matching
+
+4. **Main.xaml/Main.xaml.cs**: User interface
+   - File browser
+   - Option selection
+   - Translation preview
+   - Status feedback
+
+5. **Command.cs**: Entry point
+   - Initializes the plugin
+   - Creates external event handler
+
+### Supported Element Types
+All Revit elements with string parameters:
+- Door, Window, Wall instances
+- Room, Area, Space elements
+- Family instances
+- Schedules and views
+- Any element with text-based parameters
+
+### Parameter Processing
+The plugin processes:
+- Instance parameters
+- Type parameters (if writable)
+- Built-in parameters (if writable)
+- Custom parameters
+- Shared parameters
+
+**Note**: Read-only parameters are skipped safely without interrupting the process.
+
+## Performance Notes
+
+- Processing time depends on project size and number of parameters
+- Large projects (10,000+ elements) may take several minutes
+- Translations with partial matches (Option 1) are slower than exact matches (Option 2)
+
+## Troubleshooting
+
+### File Not Loading
+- Verify the file path is correct
+- Check file is not corrupted
+- Ensure sufficient permissions to read the file
+- Try saving Excel file as CSV for better compatibility
+
+### No Elements Modified
+1. Check if translations are loaded correctly
+2. Verify original text matches parameter values exactly (for Option 2)
+3. Ensure parameters are not locked or read-only
+4. Check case sensitivity setting
+
+### Excel File Support
+- For .xlsx support, install ClosedXML: `dotnet add package ClosedXML`
+- Alternative: Use CSV format which is natively supported
+
+## Tips & Tricks
+
+1. **Test First**: Try with a small translation file on a test project before processing large projects
+2. **Backup Project**: Always save a backup before running replacements
+3. **Use Option 2 for Safety**: Exact matching is safer and faster than partial matching
+4. **Case Sensitivity**: Leave case-insensitive for most cases (more flexible matching)
+5. **CSV Compatibility**: CSV files work across all versions without additional packages
+
+## Limitations
+
+1. Only processes text (string) parameters
+2. Does not modify model geometry or dimensions
+3. Requires active Revit document
+4. Only works on current document (not linked documents)
+5. Changes are not marked with special tracking
+
+## Future Enhancements
+
+Potential improvements for future versions:
+- Support for linked models
+- Batch processing of multiple files
+- Undo support
+- Regex pattern matching
+- Filter by element category
+- Preview before applying
+- Save operation log

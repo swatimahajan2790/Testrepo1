@@ -1,0 +1,224 @@
+﻿using Autodesk.Revit.DB;
+using Autodesk.Revit.UI;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Language_Replace
+{
+    public class ApplyHandler : IExternalEventHandler
+    {
+        public UIDocument UiDoc;
+        public Data Data;
+        private NLLBTranslator _translator;
+
+        public void Execute(UIApplication app)
+        {
+            var uidoc = UiDoc;
+            var doc = uidoc?.Document;
+            if (doc == null || Data == null) return;
+
+            try
+            {
+                if (Data.UseAITranslation)
+                {
+                    ExecuteAITranslation(doc);
+                }
+                else
+                {
+                    ExecuteFileBasedTranslation(doc);
+                }
+            }
+            catch (Exception ex)
+            {
+                TaskDialog.Show("Language Replace Error", $"Error: {ex.Message}");
+            }
+        }
+
+        private void ExecuteAITranslation(Document doc)
+        {
+            _translator = new NLLBTranslator();
+
+            if (!_translator.IsModelAvailable())
+            {
+                TaskDialog.Show("AI Translation", "NLLB model not found. Download from: https://huggingface.co/Xenova/nllb-200-distilled-600M-onnx");
+                return;
+            }
+
+            using (var t = new Transaction(doc, "AI Language Replace"))
+            {
+                t.Start();
+
+                var parametersChanged = 0;
+                var elementsProcessed = new HashSet<ElementId>();
+                var translatedTexts = new List<TranslationEntry>();
+
+                var allElements = new FilteredElementCollector(doc)
+                    .WhereElementIsNotElementType()
+                    .ToElements();
+
+                foreach (var element in allElements)
+                {
+                    foreach (Parameter param in element.Parameters)
+                    {
+                        if (param.StorageType == StorageType.String)
+                        {
+                            var originalValue = param.AsString();
+                            if (!string.IsNullOrEmpty(originalValue))
+                            {
+                                try
+                                {
+                                    var translatedValue = _translator.Translate(originalValue, Data.SelectedLanguage);
+
+                                    if (!string.IsNullOrEmpty(translatedValue) && translatedValue != originalValue)
+                                    {
+                                        param.Set(translatedValue);
+                                        parametersChanged++;
+                                        elementsProcessed.Add(element.Id);
+
+                                        translatedTexts.Add(new TranslationEntry
+                                        {
+                                            OriginalText = originalValue,
+                                            TranslatedText = translatedValue
+                                        });
+                                    }
+                                }
+                                catch
+                                {
+                                }
+                            }
+                        }
+                    }
+                }
+
+                t.Commit();
+                Data.TotalElementsProcessed = elementsProcessed.Count;
+
+                Data.Translations.Clear();
+                foreach (var entry in translatedTexts.Take(100))
+                    Data.Translations.Add(entry);
+
+                TaskDialog.Show("AI Translation Complete",
+                    $"Elements Modified: {elementsProcessed.Count}\nParameters Changed: {parametersChanged}\nTarget Language: {Data.SelectedLanguage}");
+            }
+
+            _translator?.Dispose();
+        }
+
+        private void ExecuteFileBasedTranslation(Document doc)
+        {
+            using (var t = new Transaction(doc, "Language Replace"))
+            {
+                t.Start();
+
+                var parametersChanged = 0;
+                var elementsProcessed = new HashSet<ElementId>();
+
+                var allElements = new FilteredElementCollector(doc)
+                    .WhereElementIsNotElementType()
+                    .ToElements();
+
+                foreach (var element in allElements)
+                {
+                    foreach (Parameter param in element.Parameters)
+                    {
+                        if (param.StorageType == StorageType.String)
+                        {
+                            var originalValue = param.AsString();
+                            if (!string.IsNullOrEmpty(originalValue))
+                            {
+                                var newValue = ReplaceText(originalValue);
+                                if (newValue != originalValue)
+                                {
+                                    try
+                                    {
+                                        param.Set(newValue);
+                                        parametersChanged++;
+                                        elementsProcessed.Add(element.Id);
+                                    }
+                                    catch
+                                    {
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                t.Commit();
+                Data.TotalElementsProcessed = elementsProcessed.Count;
+                TaskDialog.Show("Language Replace",
+                    $"Replacement Complete!\n\nElements Modified: {elementsProcessed.Count}\nParameters Changed: {parametersChanged}");
+            }
+        }
+
+        private string ReplaceText(string text)
+        {
+            if (string.IsNullOrEmpty(text) || Data.Translations.Count == 0)
+                return text;
+
+            var result = text;
+
+            foreach (var translation in Data.Translations)
+            {
+                if (string.IsNullOrEmpty(translation.OriginalText) || string.IsNullOrEmpty(translation.TranslatedText))
+                    continue;
+
+                switch (Data.SelectedOption)
+                {
+                    case Data.ReplacementOption.ReplaceToSecondLanguage:
+                        result = ReplaceIgnoreCaseIfNeeded(result, translation.OriginalText, translation.TranslatedText);
+                        break;
+
+                    case Data.ReplacementOption.ReplaceToExistingOrSecond:
+                        if (CompareStrings(result, translation.OriginalText))
+                        {
+                            result = translation.TranslatedText;
+                        }
+                        break;
+                }
+            }
+
+            return result;
+        }
+
+        private string ReplaceIgnoreCaseIfNeeded(string text, string oldValue, string newValue)
+        {
+            if (Data.IsCaseSensitive)
+            {
+                return text.Replace(oldValue, newValue);
+            }
+            else
+            {
+                int startIndex = 0;
+                var stringComparison = StringComparison.OrdinalIgnoreCase;
+
+                while (startIndex < text.Length)
+                {
+                    int index = text.IndexOf(oldValue, startIndex, stringComparison);
+                    if (index < 0) break;
+
+                    text = text.Remove(index, oldValue.Length);
+                    text = text.Insert(index, newValue);
+                    startIndex = index + newValue.Length;
+                }
+
+                return text;
+            }
+        }
+
+        private bool CompareStrings(string str1, string str2)
+        {
+            if (Data.IsCaseSensitive)
+            {
+                return str1.Equals(str2, StringComparison.Ordinal);
+            }
+            else
+            {
+                return str1.Equals(str2, StringComparison.OrdinalIgnoreCase);
+            }
+        }
+
+        public string GetName() => "ApplyHandler";
+    }
+}

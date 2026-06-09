@@ -1,0 +1,174 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.ML.OnnxRuntime;
+using Microsoft.ML.OnnxRuntime.Tensors;
+
+namespace Language_Replace
+{
+    public class NLLBTranslator
+    {
+        private InferenceSession _session;
+        private Dictionary<string, int> _sourceTokenizer;
+        private Dictionary<int, string> _targetTokenizer;
+        private const int MaxTokens = 256;
+        private const string ModelPath = "nllb-200-distilled-600M-onnx/model.onnx";
+
+        private static readonly Dictionary<string, string> LanguageCodes = new()
+        {
+            { "English", "eng_Latn" },
+            { "Spanish", "spa_Latn" },
+            { "French", "fra_Latn" },
+            { "German", "deu_Latn" },
+            { "Italian", "ita_Latn" },
+            { "Portuguese", "por_Latn" },
+            { "Dutch", "nld_Latn" },
+            { "Russian", "rus_Cyrl" },
+            { "Chinese (Simplified)", "zho_Hans" },
+            { "Chinese (Traditional)", "zho_Hant" },
+            { "Japanese", "jpn_Jpan" },
+            { "Korean", "kor_Hang" },
+            { "Arabic", "arb_Arab" },
+            { "Hindi", "hin_Deva" },
+            { "Vietnamese", "vie_Latn" },
+            { "Thai", "tha_Thai" },
+            { "Polish", "pol_Latn" },
+            { "Turkish", "tur_Latn" },
+            { "Indonesian", "ind_Latn" },
+            { "Swedish", "swe_Latn" },
+            { "Norwegian", "nor_Latn" },
+            { "Danish", "dan_Latn" },
+            { "Finnish", "fin_Latn" },
+            { "Hebrew", "heb_Hebr" },
+            { "Greek", "ell_Grek" },
+            { "Czech", "ces_Latn" },
+            { "Hungarian", "hun_Latn" },
+            { "Romanian", "ron_Latn" },
+            { "Bulgarian", "bul_Cyrl" },
+            { "Serbian", "srp_Cyrl" },
+            { "Filipino", "fil_Latn" },
+            { "Urdu", "urd_Arab" }
+        };
+
+        public NLLBTranslator()
+        {
+            InitializeTokenizers();
+        }
+
+        private void InitializeTokenizers()
+        {
+            _sourceTokenizer = new Dictionary<string, int>();
+            _targetTokenizer = new Dictionary<int, string>();
+        }
+
+        public bool IsModelAvailable()
+        {
+            try
+            {
+                if (System.IO.File.Exists(ModelPath))
+                {
+                    _session = new InferenceSession(ModelPath);
+                    return true;
+                }
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public List<string> GetAvailableLanguages()
+        {
+            return LanguageCodes.Keys.OrderBy(x => x).ToList();
+        }
+
+        public string GetLanguageCode(string languageName)
+        {
+            return LanguageCodes.ContainsKey(languageName) ? LanguageCodes[languageName] : "eng_Latn";
+        }
+
+        public string Translate(string text, string targetLanguage, string sourceLanguage = "eng_Latn")
+        {
+            if (!IsModelAvailable())
+                throw new Exception("NLLB model not found. Ensure model is downloaded to: " + ModelPath);
+
+            try
+            {
+                string targetLangCode = GetLanguageCode(targetLanguage);
+
+                var inputs = new Dictionary<string, OrtValue>
+                {
+                    { "input_ids", OrtValue.CreateTensorValueFromMemory(SimpleTokenize(text)) },
+                    { "language", OrtValue.CreateTensorValueFromMemory(EncodeLanguage(targetLangCode)) }
+                };
+
+                var results = _session.Run(inputs);
+                var output = results[0].GetTensorDataAsSpan<long>();
+
+                return DecodeOutput(output);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Translation failed: {ex.Message}", ex);
+            }
+        }
+
+        private long[] SimpleTokenize(string text)
+        {
+            var tokens = new List<long>();
+            var words = text.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+
+            foreach (var word in words)
+            {
+                if (tokens.Count < MaxTokens)
+                    tokens.Add(GetTokenId(word));
+            }
+
+            while (tokens.Count < MaxTokens)
+                tokens.Add(0);
+
+            return tokens.ToArray();
+        }
+
+        private long GetTokenId(string word)
+        {
+            if (!_sourceTokenizer.ContainsKey(word))
+                _sourceTokenizer[word] = _sourceTokenizer.Count + 1;
+            return _sourceTokenizer[word];
+        }
+
+        private long[] EncodeLanguage(string languageCode)
+        {
+            return languageCode.Select(c => (long)c).Take(MaxTokens).ToArray();
+        }
+
+        private string DecodeOutput(Span<long> output)
+        {
+            var words = new List<string>();
+            foreach (var tokenId in output)
+            {
+                if (tokenId > 0 && _targetTokenizer.ContainsKey((int)tokenId))
+                    words.Add(_targetTokenizer[(int)tokenId]);
+            }
+            return string.Join(" ", words);
+        }
+
+        public void LoadModel(string modelPath)
+        {
+            try
+            {
+                _session = new InferenceSession(modelPath);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Failed to load model: {ex.Message}", ex);
+            }
+        }
+
+        public void Dispose()
+        {
+            _session?.Dispose();
+        }
+    }
+}

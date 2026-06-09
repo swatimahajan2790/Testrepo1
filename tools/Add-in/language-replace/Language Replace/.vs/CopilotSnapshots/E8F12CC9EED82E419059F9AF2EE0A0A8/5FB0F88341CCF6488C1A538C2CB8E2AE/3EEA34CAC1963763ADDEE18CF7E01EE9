@@ -1,0 +1,354 @@
+﻿# Developer Implementation Guide
+
+## Project Structure Overview
+
+```
+Language Replace Plugin
+├── Command.cs                 # Revit command entry point
+├── Main.xaml                  # WPF UI definition
+├── Main.xaml.cs              # WPF code-behind
+├── Data.cs                   # Data model and view model
+├── ApplyHandler.cs           # Core replacement logic
+├── ExcelHelper.cs            # File I/O utility
+├── README.md                 # User documentation
+├── EXCEL_SETUP.md           # Excel support setup
+└── sample_translations.csv   # Example translation file
+```
+
+## Class Responsibilities
+
+### Command.cs
+**Purpose**: Entry point for the Revit add-in
+
+**Key Methods**:
+- `Execute()`: Initializes the plugin
+  1. Validates user domain (DAR/DMSD groups)
+  2. Creates Data, ApplyHandler, and ExternalEvent
+  3. Launches Main window
+  4. Handles exceptions
+
+**Transaction Mode**: Manual (allows control over transaction scope)
+
+### Data.cs
+**Purpose**: Data model and configuration storage
+
+**Key Classes**:
+
+**TranslationEntry**
+```csharp
+- OriginalText (property): Source text from translation file
+- TranslatedText (property): Target text for replacement
+- Implements INotifyPropertyChanged for UI binding
+```
+
+**Data**
+```csharp
+- Translations (ObservableCollection): Loaded translation entries
+- SelectedOption (ReplacementOption): Option 1 or 2
+- ExcelFilePath (string): Path to loaded translation file
+- IsCaseSensitive (bool): Case sensitivity toggle
+- TotalElementsProcessed (int): Count of modified elements
+- ReplacementOption (enum): Option1 or Option2
+```
+
+### ExcelHelper.cs
+**Purpose**: File I/O operations for translations
+
+**Key Methods**:
+
+**ReadTranslationsFromExcel(filePath: string)**
+```csharp
+- Detects file format (CSV or XLSX)
+- Delegates to appropriate reader
+- Returns List<TranslationEntry>
+- Throws detailed exceptions on error
+```
+
+**ReadCsv(filePath: string)** [Currently Implemented]
+```csharp
+- Parses CSV format
+- Skips header row automatically
+- Handles quoted values
+- Returns List<TranslationEntry>
+```
+
+**ReadExcelFile(filePath: string)** [Requires ClosedXML]
+```csharp
+- Uses ClosedXML library for .xlsx files
+- Reads worksheet range
+- Skips first row (header)
+- Currently returns NotImplementedException with instructions
+```
+
+**ValidateExcelFormat(filePath: string)**
+```csharp
+- Attempts to read file
+- Returns bool: true if valid, false otherwise
+- Used for pre-validation
+```
+
+### ApplyHandler.cs
+**Purpose**: Core text replacement logic
+
+**Key Methods**:
+
+**Execute(UIApplication app)**
+```csharp
+- Implements IExternalEventHandler
+- Runs in Revit UI thread (thread-safe)
+- Creates transaction for changes
+- Iterates through all elements:
+  - Collects all string parameters
+  - Applies replacements
+  - Tracks modified elements
+- Commits transaction
+- Shows result dialog
+```
+
+**ReplaceText(text: string)**
+```csharp
+- Applies selected replacement option
+- Option 1: Uses ReplaceIgnoreCaseIfNeeded
+- Option 2: Uses CompareStrings for exact match
+- Returns modified text
+```
+
+**ReplaceIgnoreCaseIfNeeded(text, oldValue, newValue)**
+```csharp
+- If IsCaseSensitive: Uses simple Replace()
+- If not: Implements case-insensitive search/replace
+- Handles multiple occurrences
+- Returns modified text
+```
+
+**CompareStrings(str1, str2)**
+```csharp
+- Respects IsCaseSensitive setting
+- Returns bool: true if strings match
+```
+
+### Main.xaml
+**Purpose**: User interface definition
+
+**Key Controls**:
+- TextBox: Display loaded file path (read-only)
+- Button: Browse and load translation file
+- RadioButton: Select replacement option
+- CheckBox: Toggle case sensitivity
+- DataGrid: Preview loaded translations
+- Button: Apply replacements / Close window
+- TextBlock: Display status messages
+
+### Main.xaml.cs
+**Purpose**: UI logic and event handlers
+
+**Key Methods**:
+
+**BrowseButton_Click()**
+```csharp
+- Shows OpenFileDialog
+- Calls ExcelHelper.ReadTranslationsFromExcel()
+- Populates Translations collection
+- Updates status message
+- Handles exceptions
+```
+
+**ApplyButton_Click()**
+```csharp
+- Validates inputs (translations loaded)
+- Updates Data.SelectedOption based on radio button
+- Raises ExternalEvent
+- Disables buttons during operation
+- Re-enables buttons after completion
+```
+
+**CloseButton_Click()**
+```csharp
+- Closes the window
+```
+
+## Data Flow
+
+```
+User opens plugin
+    ↓
+Command.Execute() initializes
+    ↓
+Main window displays
+    ↓
+User selects translation file
+    ↓
+BrowseButton_Click → ExcelHelper.ReadTranslationsFromExcel()
+    ↓
+Translations loaded into Data.Translations
+    ↓
+DataGrid displays translations
+    ↓
+User selects option and clicks "Apply"
+    ↓
+ApplyButton_Click → Data.SelectedOption updated
+    ↓
+ExternalEvent.Raise() → ApplyHandler.Execute()
+    ↓
+ApplyHandler iterates elements
+    ↓
+ReplaceText() applies replacements
+    ↓
+Changes committed to document
+    ↓
+Result dialog shown
+```
+
+## Key Design Patterns
+
+### 1. MVVM (Model-View-ViewModel)
+- **Model**: TranslationEntry, Data
+- **View**: Main.xaml
+- **ViewModel**: Data (implements INotifyPropertyChanged)
+- Binding: DataContext = _data
+
+### 2. External Event Pattern
+- Plugin runs in modal dialog (different thread)
+- ApplyHandler uses ExternalEvent for thread-safe document access
+- Avoids "cannot modify document from non-main thread" errors
+
+### 3. Observable Collections
+- Translations use ObservableCollection
+- UI updates automatically when collection changes
+- DataGrid reflects changes without manual refresh
+
+## Thread Safety Considerations
+
+**Safe Operations**:
+- UI updates on Main thread (WPF dispatcher)
+- Document modifications on Revit UI thread (ExternalEvent)
+
+**Potential Issues**:
+- Direct document access from dialog would fail
+- Solution: Use ExternalEvent to marshal to UI thread
+
+## Extension Points
+
+### Adding New Replacement Options
+1. Add enum value to `Data.ReplacementOption`
+2. Add RadioButton to `Main.xaml`
+3. Add case handling in `ApplyHandler.ReplaceText()`
+
+### Adding New File Formats
+1. Add file extension detection in `ExcelHelper.ReadTranslationsFromExcel()`
+2. Implement new reader method (e.g., `ReadJsonFile()`)
+3. Call new method in format detection logic
+
+### Adding Filters
+1. Add properties to `Data` for filter criteria
+2. Add UI controls to `Main.xaml`
+3. Modify `ApplyHandler.Execute()` to filter elements before processing
+
+## Performance Optimization Tips
+
+### Current Bottlenecks
+1. Scanning all elements: O(n) where n = element count
+2. Case-insensitive replacement: O(m²) per parameter (m = text length)
+
+### Optimization Strategies
+1. **Filter by Category**: Only scan relevant element types
+2. **Parallel Processing**: Process elements in parallel (with care for threading)
+3. **Regex Compilation**: Pre-compile patterns for case-insensitive matching
+4. **Pagination**: Process large projects in batches
+
+### Recommended Optimizations
+```csharp
+// Filter by element category
+var doorElements = new FilteredElementCollector(doc)
+    .OfCategory(BuiltInCategory.OST_Doors)
+    .WhereElementIsNotElementType()
+    .ToElements();
+
+// Use Regex for multiple replacements
+var replacements = translations.ToDictionary(t => t.OriginalText);
+var pattern = $"({string.Join("|", replacements.Keys.Select(Regex.Escape))})";
+var regex = new Regex(pattern, caseInsensitive ? RegexOptions.IgnoreCase : 0);
+```
+
+## Debugging Tips
+
+### Enable Logging
+Add to `ApplyHandler.Execute()`:
+```csharp
+System.Diagnostics.Debug.WriteLine($"Processing element: {element.Name}");
+System.Diagnostics.Debug.WriteLine($"Parameters found: {element.Parameters.Size}");
+```
+
+### Check Transaction Status
+```csharp
+TaskDialog.Show("Debug", $"Transaction open: {t.IsOpen}");
+```
+
+### Test with Sample Data
+Use `sample_translations.csv` with test Revit model
+
+## Testing Checklist
+
+- [ ] Plugin loads without errors
+- [ ] File browser opens and filters correctly
+- [ ] CSV file loads and displays in grid
+- [ ] Excel file loads (if ClosedXML installed)
+- [ ] Case-sensitive toggle works
+- [ ] Option 1 replaces all occurrences
+- [ ] Option 2 replaces exact matches only
+- [ ] Status messages display correctly
+- [ ] Large projects (1000+ elements) complete within reasonable time
+- [ ] No parameters are skipped unexpectedly
+- [ ] Document can be saved after replacements
+
+## Build & Deployment
+
+### Build Command
+```bash
+dotnet build
+```
+
+### Configuration
+- Target Framework: .NET 8
+- Platform: Windows
+- Output: DLL for Revit add-in
+
+### Revit Add-in Setup
+1. Build project to get DLL
+2. Create .addin manifest file
+3. Place DLL and manifest in Revit add-ins folder
+4. Restart Revit to load add-in
+
+## Future Enhancement Ideas
+
+1. **Undo Support**: Store original values for undo operation
+2. **Preview Mode**: Show what will be changed before applying
+3. **Regex Support**: Allow regex patterns in translations
+4. **Category Filter**: Select which element categories to process
+5. **Parameter Filter**: Select specific parameters to modify
+6. **Log Export**: Save operation log to CSV
+7. **Multi-Document**: Process multiple open documents
+8. **Scheduled Tasks**: Run replacements on schedule
+9. **Database Integration**: Read translations from database
+10. **Diff/Compare**: Show before/after comparison
+
+## Support & Maintenance
+
+### Code Review Checklist
+- [ ] Exception handling covers all error cases
+- [ ] UI is responsive (no long operations on UI thread)
+- [ ] Memory is not leaking (proper disposal of resources)
+- [ ] Code follows C# naming conventions
+- [ ] XML documentation comments on public members
+- [ ] Performance acceptable for large projects
+
+### Common Issues & Fixes
+
+**Issue**: Dialog not showing
+- **Fix**: Check WindowInteropHelper.Owner assignment
+
+**Issue**: No elements modified
+- **Fix**: Check parameter write permissions and filtering
+
+**Issue**: Slow on large projects
+- **Fix**: Use Option 2 (exact match) instead of Option 1 (partial match)

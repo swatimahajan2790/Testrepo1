@@ -1,0 +1,147 @@
+﻿using Autodesk.Revit.DB;
+using Autodesk.Revit.UI;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Language_Replace
+{
+    public class ApplyHandler : IExternalEventHandler
+    {
+        public UIDocument UiDoc;
+        public Data Data;
+
+        public void Execute(UIApplication app)
+        {
+            var uidoc = UiDoc;
+            var doc = uidoc?.Document;
+            if (doc == null || Data == null) return;
+
+            try
+            {
+                using (var t = new Transaction(doc, "Language Replace"))
+                {
+                    t.Start();
+
+                    // Get all text-based parameters to replace
+                    var parametersChanged = 0;
+                    var elementsProcessed = new HashSet<ElementId>();
+
+                    // Collect all elements with parameters
+                    var allElements = new FilteredElementCollector(doc)
+                        .WhereElementIsNotElementType()
+                        .ToElements();
+
+                    foreach (var element in allElements)
+                    {
+                        foreach (Parameter param in element.Parameters)
+                        {
+                            if (param.StorageType == StorageType.String)
+                            {
+                                var originalValue = param.AsString();
+                                if (!string.IsNullOrEmpty(originalValue))
+                                {
+                                    var newValue = ReplaceText(originalValue);
+                                    if (newValue != originalValue)
+                                    {
+                                        try
+                                        {
+                                            param.Set(newValue);
+                                            parametersChanged++;
+                                            elementsProcessed.Add(element.Id);
+                                        }
+                                        catch
+                                        {
+                                            // Parameter might be read-only, continue
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    t.Commit();
+                    Data.TotalElementsProcessed = elementsProcessed.Count;
+                    TaskDialog.Show("Language Replace",
+                        $"Replacement Complete!\n\nElements Modified: {elementsProcessed.Count}\nParameters Changed: {parametersChanged}");
+                }
+            }
+            catch (Exception ex)
+            {
+                TaskDialog.Show("Language Replace Error", $"Error: {ex.Message}");
+            }
+        }
+
+        private string ReplaceText(string text)
+        {
+            if (string.IsNullOrEmpty(text) || Data.Translations.Count == 0)
+                return text;
+
+            var result = text;
+
+            foreach (var translation in Data.Translations)
+            {
+                if (string.IsNullOrEmpty(translation.OriginalText) || string.IsNullOrEmpty(translation.TranslatedText))
+                    continue;
+
+                switch (Data.SelectedOption)
+                {
+                    case Data.ReplacementOption.ReplaceToSecondLanguage:
+                        // Replace original text with translated text
+                        result = ReplaceIgnoreCaseIfNeeded(result, translation.OriginalText, translation.TranslatedText);
+                        break;
+
+                    case Data.ReplacementOption.ReplaceToExistingOrSecond:
+                        // If current text matches original, replace with translated
+                        if (CompareStrings(result, translation.OriginalText))
+                        {
+                            result = translation.TranslatedText;
+                        }
+                        break;
+                }
+            }
+
+            return result;
+        }
+
+        private string ReplaceIgnoreCaseIfNeeded(string text, string oldValue, string newValue)
+        {
+            if (Data.IsCaseSensitive)
+            {
+                return text.Replace(oldValue, newValue);
+            }
+            else
+            {
+                // Case-insensitive replacement
+                int startIndex = 0;
+                var stringComparison = StringComparison.OrdinalIgnoreCase;
+                
+                while (startIndex < text.Length)
+                {
+                    int index = text.IndexOf(oldValue, startIndex, stringComparison);
+                    if (index < 0) break;
+
+                    text = text.Remove(index, oldValue.Length);
+                    text = text.Insert(index, newValue);
+                    startIndex = index + newValue.Length;
+                }
+
+                return text;
+            }
+        }
+
+        private bool CompareStrings(string str1, string str2)
+        {
+            if (Data.IsCaseSensitive)
+            {
+                return str1.Equals(str2, StringComparison.Ordinal);
+            }
+            else
+            {
+                return str1.Equals(str2, StringComparison.OrdinalIgnoreCase);
+            }
+        }
+
+        public string GetName() => "ApplyHandler";
+    }
+}

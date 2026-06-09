@@ -1,0 +1,1143 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "version_2025/1.0.0": {
+        "dependencies": {
+          "ClosedXML": "0.105.0",
+          "DocumentFormat.OpenXml": "3.4.1",
+          "System.IO.Packaging": "10.0.3",
+          "RevitAPI": "25.4.50.0",
+          "RevitAPIUI": "25.4.50.0"
+        },
+        "runtime": {
+          "version_2025.dll": {}
+        }
+      },
+      "ClosedXML/0.105.0": {
+        "dependencies": {
+          "ClosedXML.Parser": "2.0.0",
+          "DocumentFormat.OpenXml": "3.4.1",
+          "ExcelNumberFormat": "1.1.0",
+          "RBush.Signed": "4.0.0",
+          "SixLabors.Fonts": "1.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/ClosedXML.dll": {
+            "assemblyVersion": "0.105.0.0",
+            "fileVersion": "0.105.0.0"
+          }
+        }
+      },
+      "ClosedXML.Parser/2.0.0": {
+        "runtime": {
+          "lib/netstandard2.1/ClosedXML.Parser.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "DocumentFormat.OpenXml/3.4.1": {
+        "dependencies": {
+          "DocumentFormat.OpenXml.Framework": "3.4.1"
+        },
+        "runtime": {
+          "lib/net8.0/DocumentFormat.OpenXml.dll": {
+            "assemblyVersion": "3.4.1.0",
+            "fileVersion": "3.4.1.0"
+          }
+        }
+      },
+      "DocumentFormat.OpenXml.Framework/3.4.1": {
+        "dependencies": {
+          "System.IO.Packaging": "10.0.3"
+        },
+        "runtime": {
+          "lib/net8.0/DocumentFormat.OpenXml.Framework.dll": {
+            "assemblyVersion": "3.4.1.0",
+            "fileVersion": "3.4.1.0"
+          }
+        }
+      },
+      "ExcelNumberFormat/1.1.0": {
+        "runtime": {
+          "lib/netstandard2.0/ExcelNumberFormat.dll": {
+            "assemblyVersion": "1.1.0.0",
+            "fileVersion": "1.1.0.0"
+          }
+        }
+      },
+      "RBush.Signed/4.0.0": {
+        "runtime": {
+          "lib/net8.0/RBush.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.0.0"
+          }
+        }
+      },
+      "SixLabors.Fonts/1.0.0": {
+        "runtime": {
+          "lib/netcoreapp3.1/SixLabors.Fonts.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "System.IO.Packaging/10.0.3": {
+        "runtime": {
+          "lib/net8.0/System.IO.Packaging.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.326.7603"
+          }
+        }
+      },
+      "RevitAPI/25.4.50.0": {
+        "runtime": {
+          "RevitAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "RevitAPIUI/25.4.50.0": {
+        "runtime": {
+          "RevitAPIUI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "AdpSDKCSharpWrapper/1.0.0.0": {
+        "runtime": {
+          "AdpSDKCSharpWrapper.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "5.5.54.0"
+          }
+        }
+      },
+      "AdskRcManaged/1.0.9559.27424": {
+        "runtime": {
+          "AdskRcManaged.dll": {
+            "assemblyVersion": "1.0.9559.27424",
+            "fileVersion": "25.1.4.11"
+          }
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/7.0.0.0": {
+        "runtime": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.22.51805"
+          }
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection/7.0.0.0": {
+        "runtime": {
+          "Microsoft.Extensions.DependencyInjection.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.22.51805"
+          }
+        }
+      },
+      "RevitAPIFoundation/25.4.50.0": {
+        "runtime": {
+          "RevitAPIFoundation.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "RevitDBAPI/25.4.50.0": {
+        "runtime": {
+          "RevitDBAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "RevitDBCoreAPI/25.4.50.0": {
+        "runtime": {
+          "RevitDBCoreAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "PersistenceDBAPI/25.4.50.0": {
+        "runtime": {
+          "PersistenceDBAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "UtilityAPI/25.4.50.0": {
+        "runtime": {
+          "UtilityAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "APIDBAPI/25.4.50.0": {
+        "runtime": {
+          "APIDBAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "GraphicsAPI/25.4.50.0": {
+        "runtime": {
+          "GraphicsAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "ElementGroupDBAPI/25.4.50.0": {
+        "runtime": {
+          "ElementGroupDBAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "EssentialsDBAPI/25.4.50.0": {
+        "runtime": {
+          "EssentialsDBAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "GeomUtilAPI/25.4.50.0": {
+        "runtime": {
+          "GeomUtilAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "FamilyDBAPI/25.4.50.0": {
+        "runtime": {
+          "FamilyDBAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "DetailDBAPI/25.4.50.0": {
+        "runtime": {
+          "DetailDBAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "CurtainGridFamilyDBAPI/25.4.50.0": {
+        "runtime": {
+          "CurtainGridFamilyDBAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "ArrayElemsDBAPI/25.4.50.0": {
+        "runtime": {
+          "ArrayElemsDBAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "EnergyAnalysisDBAPI/25.4.50.0": {
+        "runtime": {
+          "EnergyAnalysisDBAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "BuildingSystemsDBAPI/25.4.50.0": {
+        "runtime": {
+          "BuildingSystemsDBAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "HostObjDBAPI/25.4.50.0": {
+        "runtime": {
+          "HostObjDBAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "RoomAreaPlanDBAPI/25.4.50.0": {
+        "runtime": {
+          "RoomAreaPlanDBAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "SiteDBAPI/25.4.50.0": {
+        "runtime": {
+          "SiteDBAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "SculptingDBAPI/25.4.50.0": {
+        "runtime": {
+          "SculptingDBAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "StructuralDBAPI/25.4.50.0": {
+        "runtime": {
+          "StructuralDBAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "InterfaceAPI/25.4.50.0": {
+        "runtime": {
+          "InterfaceAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "InterfaceUtilAPI/25.4.50.0": {
+        "runtime": {
+          "InterfaceUtilAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "RebarDBAPI/25.4.50.0": {
+        "runtime": {
+          "RebarDBAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "StructuralAnalysisDBAPI/25.4.50.0": {
+        "runtime": {
+          "StructuralAnalysisDBAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "MassingDBAPI/25.4.50.0": {
+        "runtime": {
+          "MassingDBAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "AssemblyDBAPI/25.4.50.0": {
+        "runtime": {
+          "AssemblyDBAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "DPartDBAPI/25.4.50.0": {
+        "runtime": {
+          "DPartDBAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "NumberingDBAPI/25.4.50.0": {
+        "runtime": {
+          "NumberingDBAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "PointCloudAccessAPI/25.4.50.0": {
+        "runtime": {
+          "PointCloudAccessAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "StairRampDBAPI/25.4.50.0": {
+        "runtime": {
+          "StairRampDBAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "AnalysisAppsDBAPI/25.4.50.0": {
+        "runtime": {
+          "AnalysisAppsDBAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "MaterialDBAPI/25.4.50.0": {
+        "runtime": {
+          "MaterialDBAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "IntfATFAPI/25.4.50.0": {
+        "runtime": {
+          "IntfATFAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "TextEngineAPI/25.4.50.0": {
+        "runtime": {
+          "TextEngineAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "InfrastructureDBAPI/25.4.50.0": {
+        "runtime": {
+          "InfrastructureDBAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "ATFRevitCoreAPI/25.4.50.0": {
+        "runtime": {
+          "ATFRevitCoreAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "DBManagedServices/25.4.50.0": {
+        "runtime": {
+          "DBManagedServices.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "AdWindows/5.1.2.1": {
+        "runtime": {
+          "AdWindows.dll": {
+            "assemblyVersion": "5.1.2.1",
+            "fileVersion": "5.1.2.1"
+          }
+        },
+        "resources": {
+          "cs-CZ/AdWindows.resources.dll": {
+            "locale": "cs-CZ"
+          },
+          "de-DE/AdWindows.resources.dll": {
+            "locale": "de-DE"
+          },
+          "en-GB/AdWindows.resources.dll": {
+            "locale": "en-GB"
+          },
+          "en-US/AdWindows.resources.dll": {
+            "locale": "en-US"
+          },
+          "es-ES/AdWindows.resources.dll": {
+            "locale": "es-ES"
+          },
+          "fr-FR/AdWindows.resources.dll": {
+            "locale": "fr-FR"
+          },
+          "it-IT/AdWindows.resources.dll": {
+            "locale": "it-IT"
+          },
+          "ja-JP/AdWindows.resources.dll": {
+            "locale": "ja-JP"
+          },
+          "ko-KR/AdWindows.resources.dll": {
+            "locale": "ko-KR"
+          },
+          "pl-PL/AdWindows.resources.dll": {
+            "locale": "pl-PL"
+          },
+          "pt-BR/AdWindows.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "ru-RU/AdWindows.resources.dll": {
+            "locale": "ru-RU"
+          },
+          "zh-CN/AdWindows.resources.dll": {
+            "locale": "zh-CN"
+          },
+          "zh-TW/AdWindows.resources.dll": {
+            "locale": "zh-TW"
+          }
+        }
+      },
+      "PackageContentsParser/1.0.2.8": {
+        "runtime": {
+          "PackageContentsParser.dll": {
+            "assemblyVersion": "1.0.2.8",
+            "fileVersion": "1.0.2.8"
+          }
+        }
+      },
+      "RevitAddInUtility/25.4.50.0": {
+        "runtime": {
+          "RevitAddInUtility.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "APIInterop/25.4.50.0": {
+        "runtime": {
+          "APIInterop.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "UIFramework/25.4.50.0": {
+        "runtime": {
+          "UIFramework.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "AddInManager/25.4.50.0": {
+        "runtime": {
+          "AddInManager.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "RevitUIAPI/25.4.50.0": {
+        "runtime": {
+          "RevitUIAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "BuildingSystemsUIAPI/25.4.50.0": {
+        "runtime": {
+          "BuildingSystemsUIAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "DesktopMFCAPI/25.4.50.0": {
+        "runtime": {
+          "DesktopMFCAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "APIUIAPI/25.4.50.0": {
+        "runtime": {
+          "APIUIAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "RevitMFCAPI/25.4.50.0": {
+        "runtime": {
+          "RevitMFCAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "EssentialsUIAPI/25.4.50.0": {
+        "runtime": {
+          "EssentialsUIAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "DetailUIAPI/25.4.50.0": {
+        "runtime": {
+          "DetailUIAPI.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "UIFrameworkServices/25.4.50.0": {
+        "runtime": {
+          "UIFrameworkServices.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "Newtonsoft.Json/13.0.0.0": {
+        "runtime": {
+          "Newtonsoft.Json.dll": {
+            "assemblyVersion": "13.0.0.0",
+            "fileVersion": "13.0.1.25517"
+          }
+        }
+      },
+      "SSONET/25.4.50.0": {
+        "runtime": {
+          "SSONET.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "Autodesk.UI.Windows/3.2.0.0": {
+        "runtime": {
+          "Autodesk.UI.Windows.dll": {
+            "assemblyVersion": "3.2.0.0",
+            "fileVersion": "3.2.56.0"
+          }
+        }
+      },
+      "Autodesk.UI.Themes/3.2.0.0": {
+        "runtime": {
+          "Autodesk.UI.Themes.dll": {
+            "assemblyVersion": "3.2.0.0",
+            "fileVersion": "3.2.45.0"
+          }
+        }
+      },
+      "Xceed.Wpf.AvalonDock/2.1.0.0": {
+        "runtime": {
+          "Xceed.Wpf.AvalonDock.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.7.0"
+          }
+        }
+      },
+      "CefSharp.Wpf/119.4.30.0": {
+        "runtime": {
+          "CefSharp.Wpf.dll": {
+            "assemblyVersion": "119.4.30.0",
+            "fileVersion": "119.4.30.0"
+          }
+        }
+      },
+      "CefSharp/119.4.30.0": {
+        "runtime": {
+          "CefSharp.dll": {
+            "assemblyVersion": "119.4.30.0",
+            "fileVersion": "119.4.30.0"
+          }
+        }
+      },
+      "CompositionServices/25.4.50.0": {
+        "runtime": {
+          "CompositionServices.dll": {
+            "assemblyVersion": "25.4.50.0",
+            "fileVersion": "25.4.50.35"
+          }
+        }
+      },
+      "Autodesk.Weave.Wpf/1.0.0.0": {
+        "runtime": {
+          "Autodesk.Weave.Wpf.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "CefSharp.Core/119.4.30.0": {
+        "runtime": {
+          "CefSharp.Core.dll": {
+            "assemblyVersion": "119.4.30.0",
+            "fileVersion": "119.4.30.0"
+          }
+        }
+      },
+      "Autodesk.UI.Windows.WebOnDesktop/3.2.0.0": {
+        "runtime": {
+          "Autodesk.UI.Windows.WebOnDesktop.dll": {
+            "assemblyVersion": "3.2.0.0",
+            "fileVersion": "3.2.48.0"
+          }
+        }
+      },
+      "System.ComponentModel.Composition/4.0.0.0": {
+        "runtime": {
+          "System.ComponentModel.Composition.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "7.0.22.51805"
+          }
+        }
+      },
+      "CefSharp.Core.Runtime/119.4.30.0": {
+        "runtime": {
+          "CefSharp.Core.Runtime.dll": {
+            "assemblyVersion": "119.4.30.0",
+            "fileVersion": "119.4.30.0"
+          }
+        }
+      },
+      "CefSharp.Wpf.HwndHost/119.1.20.0": {
+        "runtime": {
+          "CefSharp.Wpf.HwndHost.dll": {
+            "assemblyVersion": "119.1.20.0",
+            "fileVersion": "119.1.20.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "version_2025/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ClosedXML/0.105.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-U0hAdnYyPvF7TqHMFloxrS7pmozab79tFFF4c/bgPtqeelUs7ILpUd3r3c7C0a/DXsUZb3k1n4Pf7Q2LMyMQOg==",
+      "path": "closedxml/0.105.0",
+      "hashPath": "closedxml.0.105.0.nupkg.sha512"
+    },
+    "ClosedXML.Parser/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ngTqjYreDYNytG1W5d3ewHsw0ukmmrgV7EKnS4/40rXoYZGt07jrBvo+N+GxT49rcageUMUiprV0jYT4nwVBHQ==",
+      "path": "closedxml.parser/2.0.0",
+      "hashPath": "closedxml.parser.2.0.0.nupkg.sha512"
+    },
+    "DocumentFormat.OpenXml/3.4.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iM7k4Spo6ZxxudxLVGcvFLIcF6XJ65aOAsJ24o75CaKGBTuj33cL1O7qnGkQW0+ONOUFff+mWafpZYaa7rNBbg==",
+      "path": "documentformat.openxml/3.4.1",
+      "hashPath": "documentformat.openxml.3.4.1.nupkg.sha512"
+    },
+    "DocumentFormat.OpenXml.Framework/3.4.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-H7l8l84uRb+LTjijpe6PuVDlIDM28s7f//zxss6f1yK1qnaxAEZwRecPkjfE3vjFM7QZ7X4XGF4nicnIynJrBw==",
+      "path": "documentformat.openxml.framework/3.4.1",
+      "hashPath": "documentformat.openxml.framework.3.4.1.nupkg.sha512"
+    },
+    "ExcelNumberFormat/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-R3BVHPs9O+RkExbZYTGT0+9HLbi8ZrNij1Yziyw6znd3J7P3uoIR07uwTLGOogtz1p6+0sna66eBoXu7tBiVQA==",
+      "path": "excelnumberformat/1.1.0",
+      "hashPath": "excelnumberformat.1.1.0.nupkg.sha512"
+    },
+    "RBush.Signed/4.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aP5KQxL5RnFNGW1f0euYVBfCatkLw5iEzMRJcXKq8LWWP4Cp3+qoSq1tDDL2vvJ2rM0ychmVMa2VaEKLS6uX4w==",
+      "path": "rbush.signed/4.0.0",
+      "hashPath": "rbush.signed.4.0.0.nupkg.sha512"
+    },
+    "SixLabors.Fonts/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LFQsCZlV0xlUyXAOMUo5kkSl+8zAQXXbbdwWchtk0B4o7zotZhQsQOcJUELGHdfPfm/xDAsz6hONAuV25bJaAg==",
+      "path": "sixlabors.fonts/1.0.0",
+      "hashPath": "sixlabors.fonts.1.0.0.nupkg.sha512"
+    },
+    "System.IO.Packaging/10.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/4CRIbxg4yhfUOCUjochR+iZKLUnewZ4gd3y9iQlKnFLzHkVFYEaO/WARPVgSBZ9W3+yCrERxlA2/4FXOm80og==",
+      "path": "system.io.packaging/10.0.3",
+      "hashPath": "system.io.packaging.10.0.3.nupkg.sha512"
+    },
+    "RevitAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RevitAPIUI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AdpSDKCSharpWrapper/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AdskRcManaged/1.0.9559.27424": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Extensions.DependencyInjection.Abstractions/7.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Extensions.DependencyInjection/7.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RevitAPIFoundation/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RevitDBAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RevitDBCoreAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PersistenceDBAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "UtilityAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "APIDBAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GraphicsAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ElementGroupDBAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "EssentialsDBAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GeomUtilAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FamilyDBAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DetailDBAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CurtainGridFamilyDBAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ArrayElemsDBAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "EnergyAnalysisDBAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BuildingSystemsDBAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "HostObjDBAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RoomAreaPlanDBAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SiteDBAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SculptingDBAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "StructuralDBAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "InterfaceAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "InterfaceUtilAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RebarDBAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "StructuralAnalysisDBAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MassingDBAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AssemblyDBAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DPartDBAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NumberingDBAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PointCloudAccessAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "StairRampDBAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AnalysisAppsDBAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MaterialDBAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "IntfATFAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TextEngineAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "InfrastructureDBAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ATFRevitCoreAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DBManagedServices/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AdWindows/5.1.2.1": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PackageContentsParser/1.0.2.8": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RevitAddInUtility/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "APIInterop/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "UIFramework/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AddInManager/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RevitUIAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BuildingSystemsUIAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DesktopMFCAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "APIUIAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RevitMFCAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "EssentialsUIAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DetailUIAPI/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "UIFrameworkServices/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Newtonsoft.Json/13.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SSONET/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Autodesk.UI.Windows/3.2.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Autodesk.UI.Themes/3.2.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Xceed.Wpf.AvalonDock/2.1.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CefSharp.Wpf/119.4.30.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CefSharp/119.4.30.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CompositionServices/25.4.50.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Autodesk.Weave.Wpf/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CefSharp.Core/119.4.30.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Autodesk.UI.Windows.WebOnDesktop/3.2.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "System.ComponentModel.Composition/4.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CefSharp.Core.Runtime/119.4.30.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CefSharp.Wpf.HwndHost/119.1.20.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

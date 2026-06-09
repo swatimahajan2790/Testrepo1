@@ -1,0 +1,37 @@
+﻿using Autodesk.Revit.DB;
+using Autodesk.Revit.UI;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.ComponentModel;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Forms;
+using System.Windows.Input;
+using System.Windows.Media;
+using Color = System.Windows.Media.Color;
+using Orientation = System.Windows.Forms.Orientation;
+using View = Autodesk.Revit.DB.View;
+using WpfBinding = System.Windows.Data.Binding;
+
+namespace Language_Replace
+{
+    public partial class Main : Window, INotifyPropertyChanged
+    {
+        private readonly UIDocument _uidoc;
+        private readonly Document _doc;
+        public event PropertyChangedEventHandler? PropertyChanged;
+        public Main(Data data, UIDocument uidoc, ExternalEvent applyEvent, ApplyHandler handler)
+        {
+            InitializeComponent();
+            _uidoc = uidoc;
+            _doc = uidoc.Document;
+        }
+    }
+}

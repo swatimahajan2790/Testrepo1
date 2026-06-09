@@ -1,0 +1,205 @@
+﻿using Autodesk.Revit.UI;
+using System;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Windows;
+using System.Windows.Forms;
+using System.Windows.Media;
+using Color = System.Windows.Media.Color;
+
+namespace Language_Replace
+{
+    public partial class Main : Window, INotifyPropertyChanged
+    {
+        private readonly UIDocument _uidoc;
+        private readonly Data _data;
+        private readonly ExternalEvent _applyEvent;
+        private readonly ApplyHandler _handler;
+        private NLLBTranslator _translator;
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        public Main(Data data, UIDocument uidoc, ExternalEvent applyEvent, ApplyHandler handler)
+        {
+            InitializeComponent();
+            _uidoc = uidoc;
+            _data = data;
+            _applyEvent = applyEvent;
+            _handler = handler;
+
+            DataContext = _data;
+            Option1Radio.IsChecked = true;
+            
+            InitializeAITranslator();
+        }
+
+        private void InitializeAITranslator()
+        {
+            try
+            {
+                _translator = new NLLBTranslator();
+                var languages = _translator.GetAvailableLanguages();
+                
+                foreach (var lang in languages)
+                    _data.AvailableLanguages.Add(lang);
+
+                if (_translator.IsModelAvailable())
+                    _data.ModelStatus = "Model loaded successfully";
+                else
+                    _data.ModelStatus = "Model not found - Click 'Load Model'";
+            }
+            catch (Exception ex)
+            {
+                _data.ModelStatus = "Error initializing: " + ex.Message;
+            }
+        }
+
+        private void AITranslationRadio_Checked(object sender, RoutedEventArgs e)
+        {
+            FileModeSection.Visibility = Visibility.Collapsed;
+            AIModeSection.Visibility = Visibility.Visible;
+            _data.UseAITranslation = true;
+        }
+
+        private void FileBasedRadio_Checked(object sender, RoutedEventArgs e)
+        {
+            FileModeSection.Visibility = Visibility.Visible;
+            AIModeSection.Visibility = Visibility.Collapsed;
+            _data.UseAITranslation = false;
+        }
+
+        private void LoadModelButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                StatusTextBlock.Text = "Loading model... This may take a moment";
+                StatusTextBlock.Foreground = new SolidColorBrush(Color.FromRgb(33, 150, 243));
+                LoadModelButton.IsEnabled = false;
+
+                if (_translator.IsModelAvailable())
+                {
+                    _data.ModelStatus = "Model loaded successfully";
+                    StatusTextBlock.Text = "Model ready for translation";
+                    StatusTextBlock.Foreground = new SolidColorBrush(Color.FromRgb(76, 175, 80));
+                }
+                else
+                {
+                    StatusTextBlock.Text = "Model not found. Download from: https://huggingface.co/Xenova/nllb-200-distilled-600M-onnx";
+                    StatusTextBlock.Foreground = new SolidColorBrush(Color.FromRgb(244, 67, 54));
+                    _data.ModelStatus = "Model not available";
+                }
+            }
+            catch (Exception ex)
+            {
+                StatusTextBlock.Text = $"Error loading model: {ex.Message}";
+                StatusTextBlock.Foreground = new SolidColorBrush(Color.FromRgb(244, 67, 54));
+            }
+            finally
+            {
+                LoadModelButton.IsEnabled = true;
+            }
+        }
+
+        private void BrowseButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var openFileDialog = new OpenFileDialog
+                {
+                    Title = "Select Translation File",
+                    Filter = "CSV Files (*.csv)|*.csv|All Files (*.*)|*.*",
+                    InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
+                };
+
+                if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    var filePath = openFileDialog.FileName;
+                    _data.ExcelFilePath = filePath;
+
+                    try
+                    {
+                        var translations = ExcelHelper.ReadTranslationsFromExcel(filePath);
+                        _data.Translations.Clear();
+
+                        foreach (var translation in translations)
+                            _data.Translations.Add(translation);
+
+                        StatusTextBlock.Text = $"Loaded {translations.Count} translations";
+                        StatusTextBlock.Foreground = new SolidColorBrush(Color.FromRgb(76, 175, 80));
+                    }
+                    catch (Exception ex)
+                    {
+                        StatusTextBlock.Text = $"Error loading file: {ex.Message}";
+                        StatusTextBlock.Foreground = new SolidColorBrush(Color.FromRgb(244, 67, 54));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                StatusTextBlock.Text = $"Error: {ex.Message}";
+                StatusTextBlock.Foreground = new SolidColorBrush(Color.FromRgb(244, 67, 54));
+            }
+        }
+
+        private void ApplyButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (_data.UseAITranslation)
+                {
+                    if (!_translator.IsModelAvailable())
+                    {
+                        StatusTextBlock.Text = "Model not loaded. Click 'Load NLLB Model' first.";
+                        StatusTextBlock.Foreground = new SolidColorBrush(Color.FromRgb(244, 67, 54));
+                        return;
+                    }
+                }
+                else
+                {
+                    if (_data.Translations.Count == 0)
+                    {
+                        StatusTextBlock.Text = "No translations loaded.";
+                        StatusTextBlock.Foreground = new SolidColorBrush(Color.FromRgb(244, 67, 54));
+                        return;
+                    }
+                }
+
+                if (Option1Radio.IsChecked == true)
+                    _data.SelectedOption = Data.ReplacementOption.ReplaceToSecondLanguage;
+                else if (Option2Radio.IsChecked == true)
+                    _data.SelectedOption = Data.ReplacementOption.ReplaceToExistingOrSecond;
+
+                ApplyButton.IsEnabled = false;
+                BrowseButton.IsEnabled = false;
+                StatusTextBlock.Text = "Processing...";
+                StatusTextBlock.Foreground = new SolidColorBrush(Color.FromRgb(33, 150, 243));
+
+                _applyEvent.Raise();
+
+                Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    ApplyButton.IsEnabled = true;
+                    BrowseButton.IsEnabled = true;
+                }), System.Windows.Threading.DispatcherPriority.Background);
+            }
+            catch (Exception ex)
+            {
+                StatusTextBlock.Text = $"Error: {ex.Message}";
+                StatusTextBlock.Foreground = new SolidColorBrush(Color.FromRgb(244, 67, 54));
+                ApplyButton.IsEnabled = true;
+                BrowseButton.IsEnabled = true;
+            }
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            _translator?.Dispose();
+            Close();
+        }
+
+        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+    }
+}

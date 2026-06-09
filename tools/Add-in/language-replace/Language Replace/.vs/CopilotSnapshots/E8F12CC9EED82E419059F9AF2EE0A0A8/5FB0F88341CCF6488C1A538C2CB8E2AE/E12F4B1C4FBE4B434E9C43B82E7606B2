@@ -1,0 +1,155 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+namespace Language_Replace
+{
+    public static class ExcelHelper
+    {
+        /// <summary>
+        /// Reads translation data from an Excel file (CSV format or Excel format)
+        /// Expected format: Column A = Original Text, Column B = Translated Text
+        /// </summary>
+        public static List<TranslationEntry> ReadTranslationsFromExcel(string filePath)
+        {
+            var translations = new List<TranslationEntry>();
+
+            if (!File.Exists(filePath))
+                throw new FileNotFoundException($"File not found: {filePath}");
+
+            try
+            {
+                if (filePath.EndsWith(".csv", StringComparison.OrdinalIgnoreCase))
+                {
+                    translations = ReadCsv(filePath);
+                }
+                else if (filePath.EndsWith(".xlsx", StringComparison.OrdinalIgnoreCase) ||
+                         filePath.EndsWith(".xls", StringComparison.OrdinalIgnoreCase))
+                {
+                    translations = ReadExcelFile(filePath);
+                }
+                else
+                {
+                    // Try CSV format as default
+                    translations = ReadCsv(filePath);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error reading Excel file: {ex.Message}", ex);
+            }
+
+            return translations;
+        }
+
+        private static List<TranslationEntry> ReadCsv(string filePath)
+        {
+            var translations = new List<TranslationEntry>();
+
+            try
+            {
+                using (var reader = new StreamReader(filePath))
+                {
+                    string line;
+                    int lineNumber = 0;
+
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        lineNumber++;
+
+                        // Skip empty lines and headers
+                        if (string.IsNullOrWhiteSpace(line) || lineNumber == 1)
+                            continue;
+
+                        var parts = line.Split(new[] { ',' }, StringSplitOptions.None);
+                        if (parts.Length >= 2)
+                        {
+                            var original = parts[0]?.Trim().Trim('"');
+                            var translated = parts[1]?.Trim().Trim('"');
+
+                            if (!string.IsNullOrEmpty(original) && !string.IsNullOrEmpty(translated))
+                            {
+                                translations.Add(new TranslationEntry
+                                {
+                                    OriginalText = original,
+                                    TranslatedText = translated
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error reading CSV file: {ex.Message}", ex);
+            }
+
+            return translations;
+        }
+
+        private static List<TranslationEntry> ReadExcelFile(string filePath)
+        {
+            var translations = new List<TranslationEntry>();
+
+            // For Excel files, we recommend using a library like EPPlus or ClosedXML
+            // For now, we'll provide a placeholder that suggests using ClosedXML
+            try
+            {
+                // This requires: dotnet add package ClosedXML
+                // Uncomment when package is added:
+                /*
+                using (var workbook = new XLWorkbook(filePath))
+                {
+                    var worksheet = workbook.Worksheet(1);
+                    var rows = worksheet.RangeUsed().RowsUsed().Skip(1); // Skip header
+
+                    foreach (var row in rows)
+                    {
+                        var original = row.Cell(1).Value?.ToString()?.Trim();
+                        var translated = row.Cell(2).Value?.ToString()?.Trim();
+
+                        if (!string.IsNullOrEmpty(original) && !string.IsNullOrEmpty(translated))
+                        {
+                            translations.Add(new TranslationEntry
+                            {
+                                OriginalText = original,
+                                TranslatedText = translated
+                            });
+                        }
+                    }
+                }
+                */
+
+                // For now, throw informative error
+                throw new NotImplementedException(
+                    "Excel file reading requires ClosedXML package. Install with: dotnet add package ClosedXML\n" +
+                    "Alternatively, use CSV format files which are supported out of the box.");
+            }
+            catch (NotImplementedException)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error reading Excel file. Consider using CSV format instead: {ex.Message}", ex);
+            }
+        }
+
+        /// <summary>
+        /// Validates if the Excel file format is correct
+        /// </summary>
+        public static bool ValidateExcelFormat(string filePath)
+        {
+            try
+            {
+                var translations = ReadTranslationsFromExcel(filePath);
+                return translations.Count > 0;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+    }
+}

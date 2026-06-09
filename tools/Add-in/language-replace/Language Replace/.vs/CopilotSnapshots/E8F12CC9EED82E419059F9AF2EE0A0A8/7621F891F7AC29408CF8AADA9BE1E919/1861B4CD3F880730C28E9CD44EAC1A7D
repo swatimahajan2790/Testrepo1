@@ -1,0 +1,23 @@
+﻿using Autodesk.Revit.DB;
+using Autodesk.Revit.UI;
+namespace Language_Replace
+{
+    public class ApplyHandler : IExternalEventHandler
+    {
+        public UIDocument UiDoc;
+        public Data Data;
+        public void Execute(UIApplication app)
+        {
+            var uidoc = UiDoc;
+            var doc = uidoc?.Document;
+            if (doc == null || Data == null) return;
+
+            //using (var t = new Transaction(doc, "Applying changes"))
+            //{
+
+            //}
+            TaskDialog.Show("Language Replace", "Tool Run Successfully !");
+        }
+        public string GetName() => "ApplyHandler";
+    }
+}

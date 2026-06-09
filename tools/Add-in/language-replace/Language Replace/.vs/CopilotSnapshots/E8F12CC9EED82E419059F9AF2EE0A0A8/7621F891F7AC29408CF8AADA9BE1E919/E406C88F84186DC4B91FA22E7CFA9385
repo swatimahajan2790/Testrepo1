@@ -1,0 +1,151 @@
+﻿using Autodesk.Revit.DB;
+using Autodesk.Revit.UI;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.ComponentModel;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Forms;
+using System.Windows.Input;
+using System.Windows.Media;
+using Color = System.Windows.Media.Color;
+using Orientation = System.Windows.Forms.Orientation;
+using View = Autodesk.Revit.DB.View;
+using WpfBinding = System.Windows.Data.Binding;
+
+namespace Language_Replace
+{
+    public partial class Main : Window, INotifyPropertyChanged
+    {
+        private readonly UIDocument _uidoc;
+        private readonly Document _doc;
+        private readonly Data _data;
+        private readonly ExternalEvent _applyEvent;
+        private readonly ApplyHandler _handler;
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        public Main(Data data, UIDocument uidoc, ExternalEvent applyEvent, ApplyHandler handler)
+        {
+            InitializeComponent();
+            _uidoc = uidoc;
+            _doc = uidoc.Document;
+            _data = data;
+            _applyEvent = applyEvent;
+            _handler = handler;
+
+            DataContext = _data;
+
+            // Set default option
+            Option1Radio.IsChecked = true;
+        }
+
+        private void BrowseButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var openFileDialog = new OpenFileDialog
+                {
+                    Title = "Select Translation File",
+                    Filter = "Excel Files (*.xlsx;*.xls)|*.xlsx;*.xls|CSV Files (*.csv)|*.csv|All Files (*.*)|*.*",
+                    InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
+                };
+
+                if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    var filePath = openFileDialog.FileName;
+                    _data.ExcelFilePath = filePath;
+
+                    try
+                    {
+                        // Load translations from file
+                        var translations = ExcelHelper.ReadTranslationsFromExcel(filePath);
+                        _data.Translations.Clear();
+
+                        foreach (var translation in translations)
+                        {
+                            _data.Translations.Add(translation);
+                        }
+
+                        StatusTextBlock.Text = $"✓ Successfully loaded {translations.Count} translations";
+                        StatusTextBlock.Foreground = new SolidColorBrush(Color.FromRgb(76, 175, 80)); // Green
+                    }
+                    catch (Exception ex)
+                    {
+                        StatusTextBlock.Text = $"✗ Error loading file: {ex.Message}";
+                        StatusTextBlock.Foreground = new SolidColorBrush(Color.FromRgb(244, 67, 54)); // Red
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                StatusTextBlock.Text = $"✗ Error: {ex.Message}";
+                StatusTextBlock.Foreground = new SolidColorBrush(Color.FromRgb(244, 67, 54));
+            }
+        }
+
+        private void ApplyButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                // Validate inputs
+                if (_data.Translations.Count == 0)
+                {
+                    StatusTextBlock.Text = "✗ No translations loaded. Please select a file first.";
+                    StatusTextBlock.Foreground = new SolidColorBrush(Color.FromRgb(244, 67, 54));
+                    return;
+                }
+
+                // Update option based on selected radio button
+                if (Option1Radio.IsChecked == true)
+                {
+                    _data.SelectedOption = Data.ReplacementOption.ReplaceToSecondLanguage;
+                }
+                else if (Option2Radio.IsChecked == true)
+                {
+                    _data.SelectedOption = Data.ReplacementOption.ReplaceToExistingOrSecond;
+                }
+
+                // Disable buttons during operation
+                ApplyButton.IsEnabled = false;
+                BrowseButton.IsEnabled = false;
+                StatusTextBlock.Text = "Processing... Please wait.";
+                StatusTextBlock.Foreground = new SolidColorBrush(Color.FromRgb(33, 150, 243)); // Blue
+
+                // Trigger the external event
+                _applyEvent.Raise();
+
+                // Re-enable buttons after a short delay
+                Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    ApplyButton.IsEnabled = true;
+                    BrowseButton.IsEnabled = true;
+                }), System.Windows.Threading.DispatcherPriority.Background);
+            }
+            catch (Exception ex)
+            {
+                StatusTextBlock.Text = $"✗ Error: {ex.Message}";
+                StatusTextBlock.Foreground = new SolidColorBrush(Color.FromRgb(244, 67, 54));
+                ApplyButton.IsEnabled = true;
+                BrowseButton.IsEnabled = true;
+            }
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+    }
+}

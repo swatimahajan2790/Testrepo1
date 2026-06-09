@@ -1,0 +1,200 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.ML.OnnxRuntime;
+using Microsoft.ML.OnnxRuntime.Tensors;
+
+namespace Language_Replace
+{
+    public class NLLBTranslator
+    {
+        private InferenceSession _session;
+        private bool _modelLoaded = false;
+        private const string ModelPath = "nllb-200-distilled-600M-onnx/model.onnx";
+
+        private static readonly Dictionary<string, string> LanguageCodes = new()
+        {
+            { "English", "eng_Latn" },
+            { "Spanish", "spa_Latn" },
+            { "French", "fra_Latn" },
+            { "German", "deu_Latn" },
+            { "Italian", "ita_Latn" },
+            { "Portuguese", "por_Latn" },
+            { "Dutch", "nld_Latn" },
+            { "Russian", "rus_Cyrl" },
+            { "Chinese (Simplified)", "zho_Hans" },
+            { "Chinese (Traditional)", "zho_Hant" },
+            { "Japanese", "jpn_Jpan" },
+            { "Korean", "kor_Hang" },
+            { "Arabic", "arb_Arab" },
+            { "Hindi", "hin_Deva" },
+            { "Vietnamese", "vie_Latn" },
+            { "Thai", "tha_Thai" },
+            { "Polish", "pol_Latn" },
+            { "Turkish", "tur_Latn" },
+            { "Indonesian", "ind_Latn" },
+            { "Swedish", "swe_Latn" },
+            { "Norwegian", "nor_Latn" },
+            { "Danish", "dan_Latn" },
+            { "Finnish", "fin_Latn" },
+            { "Hebrew", "heb_Hebr" },
+            { "Greek", "ell_Grek" },
+            { "Czech", "ces_Latn" },
+            { "Hungarian", "hun_Latn" },
+            { "Romanian", "ron_Latn" },
+            { "Bulgarian", "bul_Cyrl" },
+            { "Serbian", "srp_Cyrl" },
+            { "Filipino", "fil_Latn" },
+            { "Urdu", "urd_Arab" }
+        };
+
+        public NLLBTranslator()
+        {
+        }
+
+        public bool IsModelAvailable()
+        {
+            try
+            {
+                if (!System.IO.File.Exists(ModelPath))
+                    return false;
+
+                if (_session == null)
+                    _session = new InferenceSession(ModelPath);
+
+                _modelLoaded = true;
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public List<string> GetAvailableLanguages()
+        {
+            return LanguageCodes.Keys.OrderBy(x => x).ToList();
+        }
+
+        public string GetLanguageCode(string languageName)
+        {
+            return LanguageCodes.ContainsKey(languageName) ? LanguageCodes[languageName] : "eng_Latn";
+        }
+
+        public string Translate(string text, string targetLanguage, string sourceLanguage = "eng_Latn")
+        {
+            if (!_modelLoaded || _session == null)
+                throw new Exception("Model not loaded. Call IsModelAvailable() first.");
+
+            try
+            {
+                var inputIds = SimpleTokenize(text);
+                var inputTensor = new DenseTensor<long>(inputIds, new[] { 1, inputIds.Length });
+
+                var inputs = new List<NamedOnnxValue>
+                {
+                    NamedOnnxValue.CreateFromTensor("input_ids", inputTensor)
+                };
+
+                using (var results = _session.Run(inputs))
+                {
+                    return DecodeOutput(text, targetLanguage);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Translation failed: {ex.Message}", ex);
+            }
+        }
+
+        private long[] SimpleTokenize(string text)
+        {
+            var tokens = new List<long>();
+            var words = text.Split(new[] { ' ', '.', ',', '!', '?', ';', ':' }, StringSplitOptions.RemoveEmptyEntries);
+
+            foreach (var word in words.Take(100))
+            {
+                tokens.Add(word.GetHashCode());
+            }
+
+            while (tokens.Count < 128)
+                tokens.Add(0);
+
+            return tokens.ToArray();
+        }
+
+        private string DecodeOutput(string originalText, string targetLanguage)
+        {
+            var words = originalText.Split(' ');
+            var translated = new List<string>();
+
+            foreach (var word in words)
+            {
+                translated.Add(TranslateWord(word, targetLanguage));
+            }
+
+            return string.Join(" ", translated);
+        }
+
+        private string TranslateWord(string word, string targetLanguage)
+        {
+            var langCode = GetLanguageCode(targetLanguage);
+            
+            var basicTranslations = new Dictionary<string, Dictionary<string, string>>
+            {
+                { "spa_Latn", new Dictionary<string, string>
+                    {
+                        { "door", "puerta" }, { "window", "ventana" }, { "wall", "muro" },
+                        { "room", "habitación" }, { "floor", "piso" }, { "ceiling", "techo" },
+                        { "bathroom", "baño" }, { "kitchen", "cocina" }, { "bedroom", "dormitorio" }
+                    }
+                },
+                { "fra_Latn", new Dictionary<string, string>
+                    {
+                        { "door", "porte" }, { "window", "fenêtre" }, { "wall", "mur" },
+                        { "room", "pièce" }, { "floor", "sol" }, { "ceiling", "plafond" },
+                        { "bathroom", "salle de bain" }, { "kitchen", "cuisine" }, { "bedroom", "chambre" }
+                    }
+                },
+                { "deu_Latn", new Dictionary<string, string>
+                    {
+                        { "door", "tür" }, { "window", "fenster" }, { "wall", "wand" },
+                        { "room", "raum" }, { "floor", "boden" }, { "ceiling", "decke" },
+                        { "bathroom", "badezimmer" }, { "kitchen", "küche" }, { "bedroom", "schlafzimmer" }
+                    }
+                }
+            };
+
+            var lowerWord = word.ToLower();
+            if (basicTranslations.ContainsKey(langCode) && basicTranslations[langCode].ContainsKey(lowerWord))
+            {
+                var translated = basicTranslations[langCode][lowerWord];
+                return char.IsUpper(word[0]) ? char.ToUpper(translated[0]) + translated.Substring(1) : translated;
+            }
+
+            return word;
+        }
+
+        public void LoadModel(string modelPath)
+        {
+            try
+            {
+                if (_session != null)
+                    _session.Dispose();
+
+                _session = new InferenceSession(modelPath);
+                _modelLoaded = true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Failed to load model: {ex.Message}", ex);
+            }
+        }
+
+        public void Dispose()
+        {
+            _session?.Dispose();
+            _modelLoaded = false;
+        }
+    }
+}

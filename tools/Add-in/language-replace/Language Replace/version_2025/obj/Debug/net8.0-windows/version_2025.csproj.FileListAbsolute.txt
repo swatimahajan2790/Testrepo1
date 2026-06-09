@@ -1,0 +1,262 @@
+C:\IT\Under Development\Language Replace\version_2025\bin\Debug\net8.0-windows\version_2025.deps.json
+C:\IT\Under Development\Language Replace\version_2025\bin\Debug\net8.0-windows\version_2025.dll
+C:\IT\Under Development\Language Replace\version_2025\bin\Debug\net8.0-windows\version_2025.pdb
+C:\IT\Under Development\Language Replace\version_2025\bin\Debug\net8.0-windows\ClosedXML.dll
+C:\IT\Under Development\Language Replace\version_2025\bin\Debug\net8.0-windows\ClosedXML.Parser.dll
+C:\IT\Under Development\Language Replace\version_2025\bin\Debug\net8.0-windows\DocumentFormat.OpenXml.dll
+C:\IT\Under Development\Language Replace\version_2025\bin\Debug\net8.0-windows\DocumentFormat.OpenXml.Framework.dll
+C:\IT\Under Development\Language Replace\version_2025\bin\Debug\net8.0-windows\ExcelNumberFormat.dll
+C:\IT\Under Development\Language Replace\version_2025\bin\Debug\net8.0-windows\RBush.dll
+C:\IT\Under Development\Language Replace\version_2025\bin\Debug\net8.0-windows\SixLabors.Fonts.dll
+C:\IT\Under Development\Language Replace\version_2025\bin\Debug\net8.0-windows\System.IO.Packaging.dll
+C:\IT\Under Development\Language Replace\version_2025\obj\Debug\net8.0-windows\version_2025.csproj.AssemblyReference.cache
+C:\IT\Under Development\Language Replace\version_2025\obj\Debug\net8.0-windows\Main.baml
+C:\IT\Under Development\Language Replace\version_2025\obj\Debug\net8.0-windows\Main.g.cs
+C:\IT\Under Development\Language Replace\version_2025\obj\Debug\net8.0-windows\version_2025_MarkupCompile.cache
+C:\IT\Under Development\Language Replace\version_2025\obj\Debug\net8.0-windows\version_2025.g.resources
+C:\IT\Under Development\Language Replace\version_2025\obj\Debug\net8.0-windows\version_2025.GeneratedMSBuildEditorConfig.editorconfig
+C:\IT\Under Development\Language Replace\version_2025\obj\Debug\net8.0-windows\version_2025.AssemblyInfoInputs.cache
+C:\IT\Under Development\Language Replace\version_2025\obj\Debug\net8.0-windows\version_2025.AssemblyInfo.cs
+C:\IT\Under Development\Language Replace\version_2025\obj\Debug\net8.0-windows\version_2025.csproj.CoreCompileInputs.cache
+C:\IT\Under Development\Language Replace\version_2025\obj\Debug\net8.0-windows\version_.880B7AC5.Up2Date
+C:\IT\Under Development\Language Replace\version_2025\obj\Debug\net8.0-windows\version_2025.dll
+C:\IT\Under Development\Language Replace\version_2025\obj\Debug\net8.0-windows\refint\version_2025.dll
+C:\IT\Under Development\Language Replace\version_2025\obj\Debug\net8.0-windows\version_2025.pdb
+C:\IT\Under Development\Language Replace\version_2025\obj\Debug\net8.0-windows\ref\version_2025.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\version_2025.deps.json
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\version_2025.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\version_2025.pdb
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\ClosedXML.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\ClosedXML.Parser.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\DocumentFormat.OpenXml.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\DocumentFormat.OpenXml.Framework.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\ExcelNumberFormat.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\RBush.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\SixLabors.Fonts.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\System.IO.Packaging.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\RevitAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\RevitAPIUI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\AdpSDKCSharpWrapper.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\AdskRcManaged.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\RevitAPIFoundation.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\RevitDBAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\RevitDBCoreAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\PersistenceDBAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\UtilityAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\APIDBAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\GraphicsAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\ElementGroupDBAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\EssentialsDBAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\GeomUtilAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\FamilyDBAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\DetailDBAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\CurtainGridFamilyDBAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\ArrayElemsDBAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\EnergyAnalysisDBAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\BuildingSystemsDBAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\HostObjDBAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\RoomAreaPlanDBAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\SiteDBAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\SculptingDBAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\StructuralDBAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\InterfaceAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\InterfaceUtilAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\RebarDBAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\StructuralAnalysisDBAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\MassingDBAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\AssemblyDBAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\DPartDBAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\NumberingDBAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\PointCloudAccessAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\StairRampDBAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\AnalysisAppsDBAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\MaterialDBAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\IntfATFAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\TextEngineAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\InfrastructureDBAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\ATFRevitCoreAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\DBManagedServices.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\AdWindows.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\PackageContentsParser.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\RevitAddInUtility.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\APIInterop.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\UIFramework.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\AddInManager.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\RevitUIAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\BuildingSystemsUIAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\DesktopMFCAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\APIUIAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\RevitMFCAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\EssentialsUIAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\DetailUIAPI.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\UIFrameworkServices.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\SSONET.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\Autodesk.UI.Windows.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\Autodesk.UI.Themes.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\Xceed.Wpf.AvalonDock.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\CefSharp.Wpf.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\CefSharp.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\CompositionServices.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\Autodesk.Weave.Wpf.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\CefSharp.Core.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\Autodesk.UI.Windows.WebOnDesktop.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\System.ComponentModel.Composition.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\CefSharp.Core.Runtime.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\CefSharp.Wpf.HwndHost.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\RevitAPI.xml
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\RevitAPIUI.xml
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\RevitAddInUtility.xml
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\CefSharp.Wpf.xml
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\CefSharp.xml
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\CefSharp.Core.xml
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\CefSharp.Wpf.HwndHost.xml
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\cs-CZ\AdWindows.resources.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\de-DE\AdWindows.resources.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\en-GB\AdWindows.resources.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\en-US\AdWindows.resources.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\es-ES\AdWindows.resources.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\fr-FR\AdWindows.resources.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\it-IT\AdWindows.resources.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\ja-JP\AdWindows.resources.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\ko-KR\AdWindows.resources.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\pl-PL\AdWindows.resources.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\pt-BR\AdWindows.resources.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\ru-RU\AdWindows.resources.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\zh-CN\AdWindows.resources.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\bin\Debug\net8.0-windows\zh-TW\AdWindows.resources.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\obj\Debug\net8.0-windows\version_2025.csproj.AssemblyReference.cache
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\obj\Debug\net8.0-windows\Main.baml
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\obj\Debug\net8.0-windows\Main.g.cs
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\obj\Debug\net8.0-windows\version_2025_MarkupCompile.cache
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\obj\Debug\net8.0-windows\version_2025.g.resources
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\obj\Debug\net8.0-windows\version_2025.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\obj\Debug\net8.0-windows\version_2025.AssemblyInfoInputs.cache
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\obj\Debug\net8.0-windows\version_2025.AssemblyInfo.cs
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\obj\Debug\net8.0-windows\version_2025.csproj.CoreCompileInputs.cache
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\obj\Debug\net8.0-windows\version_2025.sourcelink.json
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\obj\Debug\net8.0-windows\version_.880B7AC5.Up2Date
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\obj\Debug\net8.0-windows\version_2025.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\obj\Debug\net8.0-windows\refint\version_2025.dll
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\obj\Debug\net8.0-windows\version_2025.pdb
+C:\Users\sraut2\source\repos\Common-Automation\Tools\Common-LanguageReplace-Revit\src\Language Replace\version_2025\obj\Debug\net8.0-windows\ref\version_2025.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\version_2025.deps.json
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\version_2025.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\version_2025.pdb
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\ClosedXML.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\ClosedXML.Parser.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\DocumentFormat.OpenXml.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\DocumentFormat.OpenXml.Framework.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\ExcelNumberFormat.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\RBush.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\SixLabors.Fonts.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\System.IO.Packaging.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\RevitAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\RevitAPIUI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\AdpSDKCSharpWrapper.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\AdskRcManaged.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\RevitAPIFoundation.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\RevitDBAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\RevitDBCoreAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\PersistenceDBAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\UtilityAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\APIDBAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\GraphicsAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\ElementGroupDBAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\EssentialsDBAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\GeomUtilAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\FamilyDBAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\DetailDBAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\CurtainGridFamilyDBAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\ArrayElemsDBAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\EnergyAnalysisDBAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\BuildingSystemsDBAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\HostObjDBAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\RoomAreaPlanDBAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\SiteDBAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\SculptingDBAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\StructuralDBAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\InterfaceAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\InterfaceUtilAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\RebarDBAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\StructuralAnalysisDBAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\MassingDBAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\AssemblyDBAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\DPartDBAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\NumberingDBAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\PointCloudAccessAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\StairRampDBAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\AnalysisAppsDBAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\MaterialDBAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\IntfATFAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\TextEngineAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\InfrastructureDBAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\ATFRevitCoreAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\DBManagedServices.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\AdWindows.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\PackageContentsParser.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\RevitAddInUtility.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\APIInterop.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\UIFramework.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\AddInManager.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\RevitUIAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\BuildingSystemsUIAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\DesktopMFCAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\APIUIAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\RevitMFCAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\EssentialsUIAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\DetailUIAPI.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\UIFrameworkServices.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\SSONET.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\Autodesk.UI.Windows.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\Autodesk.UI.Themes.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\Xceed.Wpf.AvalonDock.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\CefSharp.Wpf.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\CefSharp.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\CompositionServices.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\Autodesk.Weave.Wpf.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\CefSharp.Core.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\Autodesk.UI.Windows.WebOnDesktop.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\System.ComponentModel.Composition.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\CefSharp.Core.Runtime.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\CefSharp.Wpf.HwndHost.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\RevitAPI.xml
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\RevitAPIUI.xml
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\RevitAddInUtility.xml
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\CefSharp.Wpf.xml
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\CefSharp.xml
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\CefSharp.Core.xml
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\CefSharp.Wpf.HwndHost.xml
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\cs-CZ\AdWindows.resources.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\de-DE\AdWindows.resources.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\en-GB\AdWindows.resources.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\en-US\AdWindows.resources.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\es-ES\AdWindows.resources.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\fr-FR\AdWindows.resources.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\it-IT\AdWindows.resources.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\ja-JP\AdWindows.resources.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\ko-KR\AdWindows.resources.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\pl-PL\AdWindows.resources.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\pt-BR\AdWindows.resources.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\ru-RU\AdWindows.resources.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\zh-CN\AdWindows.resources.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\bin\Debug\net8.0-windows\zh-TW\AdWindows.resources.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\obj\Debug\net8.0-windows\version_2025.csproj.AssemblyReference.cache
+C:\Users\smahajan2\C# project\Language Replace\version_2025\obj\Debug\net8.0-windows\Main.baml
+C:\Users\smahajan2\C# project\Language Replace\version_2025\obj\Debug\net8.0-windows\Main.g.cs
+C:\Users\smahajan2\C# project\Language Replace\version_2025\obj\Debug\net8.0-windows\version_2025_MarkupCompile.cache
+C:\Users\smahajan2\C# project\Language Replace\version_2025\obj\Debug\net8.0-windows\version_2025.g.resources
+C:\Users\smahajan2\C# project\Language Replace\version_2025\obj\Debug\net8.0-windows\version_2025.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\smahajan2\C# project\Language Replace\version_2025\obj\Debug\net8.0-windows\version_2025.AssemblyInfoInputs.cache
+C:\Users\smahajan2\C# project\Language Replace\version_2025\obj\Debug\net8.0-windows\version_2025.AssemblyInfo.cs
+C:\Users\smahajan2\C# project\Language Replace\version_2025\obj\Debug\net8.0-windows\version_2025.csproj.CoreCompileInputs.cache
+C:\Users\smahajan2\C# project\Language Replace\version_2025\obj\Debug\net8.0-windows\version_.880B7AC5.Up2Date
+C:\Users\smahajan2\C# project\Language Replace\version_2025\obj\Debug\net8.0-windows\version_2025.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\obj\Debug\net8.0-windows\refint\version_2025.dll
+C:\Users\smahajan2\C# project\Language Replace\version_2025\obj\Debug\net8.0-windows\version_2025.pdb
+C:\Users\smahajan2\C# project\Language Replace\version_2025\obj\Debug\net8.0-windows\ref\version_2025.dll

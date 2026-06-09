@@ -1,0 +1,199 @@
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+
+namespace Language_Replace
+{
+    public class TranslationEntry : INotifyPropertyChanged
+    {
+        private string _originalText;
+        private string _translatedText;
+
+        public string OriginalText
+        {
+            get => _originalText;
+            set
+            {
+                if (_originalText != value)
+                {
+                    _originalText = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public string TranslatedText
+        {
+            get => _translatedText;
+            set
+            {
+                if (_translatedText != value)
+                {
+                    _translatedText = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+    }
+
+    public class Data : INotifyPropertyChanged
+    {
+        private string _excelFilePath;
+        private ObservableCollection<TranslationEntry> _translations;
+        private ReplacementOption _selectedOption;
+        private bool _isCaseSensitive;
+        private int _totalElementsProcessed;
+        private string _selectedLanguage;
+        private bool _useAITranslation;
+        private ObservableCollection<string> _availableLanguages;
+        private string _modelStatus;
+
+        public enum ReplacementOption
+        {
+            ReplaceToSecondLanguage = 1,
+            ReplaceToExistingOrSecond = 2
+        }
+
+        public Data()
+        {
+            Translations = new ObservableCollection<TranslationEntry>();
+            AvailableLanguages = new ObservableCollection<string>();
+            SelectedOption = ReplacementOption.ReplaceToSecondLanguage;
+            IsCaseSensitive = false;
+            UseAITranslation = false;
+            SelectedLanguage = "Spanish";
+            ModelStatus = "Not loaded";
+        }
+
+        public string ExcelFilePath
+        {
+            get => _excelFilePath;
+            set
+            {
+                if (_excelFilePath != value)
+                {
+                    _excelFilePath = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public ObservableCollection<TranslationEntry> Translations
+        {
+            get => _translations;
+            set
+            {
+                if (_translations != value)
+                {
+                    _translations = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public ReplacementOption SelectedOption
+        {
+            get => _selectedOption;
+            set
+            {
+                if (_selectedOption != value)
+                {
+                    _selectedOption = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public bool IsCaseSensitive
+        {
+            get => _isCaseSensitive;
+            set
+            {
+                if (_isCaseSensitive != value)
+                {
+                    _isCaseSensitive = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public int TotalElementsProcessed
+        {
+            get => _totalElementsProcessed;
+            set
+            {
+                if (_totalElementsProcessed != value)
+                {
+                    _totalElementsProcessed = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public string SelectedLanguage
+        {
+            get => _selectedLanguage;
+            set
+            {
+                if (_selectedLanguage != value)
+                {
+                    _selectedLanguage = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public bool UseAITranslation
+        {
+            get => _useAITranslation;
+            set
+            {
+                if (_useAITranslation != value)
+                {
+                    _useAITranslation = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public ObservableCollection<string> AvailableLanguages
+        {
+            get => _availableLanguages;
+            set
+            {
+                if (_availableLanguages != value)
+                {
+                    _availableLanguages = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public string ModelStatus
+        {
+            get => _modelStatus;
+            set
+            {
+                if (_modelStatus != value)
+                {
+                    _modelStatus = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+    }
+}

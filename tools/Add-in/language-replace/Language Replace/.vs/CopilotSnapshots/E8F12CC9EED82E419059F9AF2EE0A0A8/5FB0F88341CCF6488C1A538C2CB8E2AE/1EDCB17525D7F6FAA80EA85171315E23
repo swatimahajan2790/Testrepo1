@@ -1,0 +1,97 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+namespace Language_Replace
+{
+    public static class ExcelHelper
+    {
+        public static List<TranslationEntry> ReadTranslationsFromExcel(string filePath)
+        {
+            var translations = new List<TranslationEntry>();
+
+            if (!File.Exists(filePath))
+                throw new FileNotFoundException($"File not found: {filePath}");
+
+            try
+            {
+                if (filePath.EndsWith(".csv", StringComparison.OrdinalIgnoreCase))
+                {
+                    translations = ReadCsv(filePath);
+                }
+                else if (filePath.EndsWith(".xlsx", StringComparison.OrdinalIgnoreCase) ||
+                         filePath.EndsWith(".xls", StringComparison.OrdinalIgnoreCase))
+                {
+                    translations = ReadExcelFile(filePath);
+                }
+                else
+                {
+                    translations = ReadCsv(filePath);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error reading file: {ex.Message}", ex);
+            }
+
+            return translations;
+        }
+
+        private static List<TranslationEntry> ReadCsv(string filePath)
+        {
+            var translations = new List<TranslationEntry>();
+
+            using (var reader = new StreamReader(filePath))
+            {
+                string line;
+                int lineNumber = 0;
+
+                while ((line = reader.ReadLine()) != null)
+                {
+                    lineNumber++;
+
+                    if (string.IsNullOrWhiteSpace(line) || lineNumber == 1)
+                        continue;
+
+                    var parts = line.Split(new[] { ',' }, StringSplitOptions.None);
+                    if (parts.Length >= 2)
+                    {
+                        var original = parts[0]?.Trim().Trim('"');
+                        var translated = parts[1]?.Trim().Trim('"');
+
+                        if (!string.IsNullOrEmpty(original) && !string.IsNullOrEmpty(translated))
+                        {
+                            translations.Add(new TranslationEntry
+                            {
+                                OriginalText = original,
+                                TranslatedText = translated
+                            });
+                        }
+                    }
+                }
+            }
+
+            return translations;
+        }
+
+        private static List<TranslationEntry> ReadExcelFile(string filePath)
+        {
+            // Excel (.xlsx) reading not implemented in this build. Use CSV files.
+            throw new NotImplementedException("Excel (.xlsx) reading is not implemented. Use CSV files.");
+        }
+
+        public static bool ValidateExcelFormat(string filePath)
+        {
+            try
+            {
+                var translations = ReadTranslationsFromExcel(filePath);
+                return translations.Count > 0;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+    }
+}
