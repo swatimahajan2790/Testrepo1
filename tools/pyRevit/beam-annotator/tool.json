@@ -1,0 +1,27 @@
+{
+  "RecId": 751,
+  "Name": "Beam Annotator",
+  "Discipline": "Structure",
+  "MainCategory": "Drafting",
+  "Category": "Tagging",
+  "Path": "pyRevit\\2025\\Structure\\Beam Annotator\\Beam Annotator\\AIDA\\AIDAScripts.extension\\Python Scripts.tab\\Scripts.panel\\DAR Beam Annotator.pushbutton\\script.py",
+  "IconPath": "pyRevit\\2025\\Structure\\Beam Annotator\\Beam Annotator\\AIDA\\AIDAScripts.extension\\Python Scripts.tab\\Scripts.panel\\DAR Beam Annotator.pushbutton\\icon.png",
+  "Type": "pyRevit",
+  "Version": "1.0.2",
+  "Description": "Automation tool designed to automatically place and align annotation families at the start and end points of structural beams",
+  "Owner": "Pravin Yadav",
+  "InfoUrl": "https://4ce22.dar.com/sites/BIM-DP/Development/Pages/Beam-Annotator.aspx",
+  "CommandName": "",
+  "CommandDisplayName": "",
+  "CommandIconPath": "",
+  "Versions": {
+    "2022": "pyRevit\\2022\\Structure\\Beam Annotator\\AIDA\\AIDAScripts.extension\\Python Scripts.tab\\Scripts.panel\\DAR Beam Annotator.pushbutton\\script.py",
+    "2023": "pyRevit\\2023\\Structure\\Beam Annotator\\AIDA\\AIDAScripts.extension\\Python Scripts.tab\\Scripts.panel\\DAR Beam Annotator.pushbutton\\script.py",
+    "2024": "pyRevit\\2024\\Structure\\Beam Annotator\\AIDA\\AIDAScripts.extension\\Python Scripts.tab\\Scripts.panel\\DAR Beam Annotator.pushbutton\\script.py",
+    "2025": "pyRevit\\2025\\Structure\\Beam Annotator\\Beam Annotator\\AIDA\\AIDAScripts.extension\\Python Scripts.tab\\Scripts.panel\\DAR Beam Annotator.pushbutton\\script.py"
+  },
+  "UpdateVersion": "",
+  "CreatedDate": "2026-03-31T06:39:38",
+  "UpdatedDate": "2026-03-31T06:39:38",
+  "SupportedVer": ["2022", "2023", "2024", "2025"]
+}
